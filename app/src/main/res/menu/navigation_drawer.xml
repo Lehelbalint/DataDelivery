@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/logIn">
+
+    <item
+        android:id="@+id/notifications"
+        tools:layout="@layout/fragment_notifications"
+        android:title="Main" />
+
+    <item
+        android:id="@+id/myCourses"
+        tools:layout="@layout/fragment_my_courses"
+        android:title="My Courses" />
+    <item
+        android:id="@+id/statistics"
+        android:label="title_sing_out"
+        tools:layout="@layout/fragment_charts"
+        android:title="Statistics" />
+</menu>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/logIn">
+
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.datadelivery.Profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profile_to_myCourses"
+            app:destination="@id/myCourses" />
+        <action
+            android:id="@+id/action_profile_to_charts"
+            app:destination="@id/charts" />
+    </fragment>
+    <fragment
+        android:id="@+id/myCourses"
+        android:name="com.example.datadelivery.MyCourses"
+        android:label="fragment_my_courses"
+        tools:layout="@layout/fragment_my_courses" >
+        <action
+            android:id="@+id/action_myCourses_to_courseDetail"
+            app:destination="@id/courseDetail" />
+        <action
+            android:id="@+id/action_myCourses_to_allCourses"
+            app:destination="@id/allCourses" />
+    </fragment>
+    <fragment
+        android:id="@+id/logIn"
+        android:name="com.example.datadelivery.LogIn"
+        android:label="LogIn" >
+        <action
+            android:id="@+id/action_logIn_to_profile"
+            app:destination="@id/profile" />
+        <action
+            android:id="@+id/action_logIn_to_notifications2"
+            app:destination="@id/notifications2" />
+    </fragment>
+    <fragment
+        android:id="@+id/charts"
+        android:name="com.example.datadelivery.Charts"
+        android:label="fragment_charts"
+        tools:layout="@layout/fragment_charts" />
+    <fragment
+        android:id="@+id/courseDetail"
+        android:name="com.example.datadelivery.CourseDetail"
+        android:label="fragment_course_detail"
+        tools:layout="@layout/fragment_course_detail" />
+    <fragment
+        android:id="@+id/allCourses"
+        android:name="com.example.datadelivery.AllCourses"
+        android:label="fragment_all_courses"
+        tools:layout="@layout/fragment_all_courses" />
+    <fragment
+        android:id="@+id/notifications2"
+        android:name="com.example.datadelivery.Notifications"
+        android:label="Notifications" >
+        <action
+            android:id="@+id/action_notifications2_to_myCourses"
+            app:destination="@id/myCourses" />
+        <action
+            android:id="@+id/action_notifications2_to_charts"
+            app:destination="@id/charts" />
+    </fragment>
+</navigation>
