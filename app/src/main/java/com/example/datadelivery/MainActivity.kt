@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        }
         controller.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.logIn ) {
+            if (destination.id == R.id.logIn || destination.id== R.id.questionnaire ) {
 
                 navView.visibility = View.GONE
             } else {

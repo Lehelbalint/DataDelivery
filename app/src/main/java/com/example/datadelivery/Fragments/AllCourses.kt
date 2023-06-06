@@ -1,21 +1,21 @@
-package com.example.datadelivery
+package com.example.datadelivery.Fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.datadelivery.API.DateDeliveryRepository
+import com.example.datadelivery.AllCoursesAdapter
+import com.example.datadelivery.OnItemClickListenerForAll
+import com.example.datadelivery.R
+import com.example.datadelivery.ViewModels.SharedUserViewModel
 import com.example.datadelivery.databinding.FragmentAllCoursesBinding
-import com.example.datadelivery.databinding.FragmentMyCoursesBinding
 
-class AllCourses : Fragment() , OnItemClickListenerForAll{
+class AllCourses : Fragment() , OnItemClickListenerForAll {
 
     val sharedViewModel: SharedUserViewModel by activityViewModels()
     private var _binding: FragmentAllCoursesBinding? = null

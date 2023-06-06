@@ -1,4 +1,4 @@
-package com.example.datadelivery
+package com.example.datadelivery.Fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -11,11 +11,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.datadelivery.*
 import com.example.datadelivery.API.DateDeliveryRepository
+import com.example.datadelivery.ViewModels.SharedUserViewModel
 import com.example.datadelivery.databinding.FragmentMyCoursesBinding
 
 
-class MyCourses : Fragment() , OnItemClickListener{
+class MyCourses : Fragment() , OnItemClickListener {
 
     val sharedViewModel: SharedUserViewModel by activityViewModels()
     private lateinit var myCoursesViewModel: MyCoursesViewModel
@@ -42,7 +44,6 @@ class MyCourses : Fragment() , OnItemClickListener{
         myCoursesViewModel.courseList.observe(viewLifecycleOwner) {
             sharedViewModel.courseList = myCoursesViewModel.courseList.value!!
             Log.i("xxx-pfmc", sharedViewModel.courseList.toString())
-
                 val recycler_view: RecyclerView = view.findViewById(R.id.recycler_view_courses)
                     adapter = CourseAdapter(
                         sharedViewModel.currentUser.attributes.courses.data,

@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/myCourses"
-        android:name="com.example.datadelivery.MyCourses"
+        android:name="com.example.datadelivery.Fragments.MyCourses"
         android:label="fragment_my_courses"
         tools:layout="@layout/fragment_my_courses" >
         <action
@@ -42,22 +42,22 @@
     </fragment>
     <fragment
         android:id="@+id/charts"
-        android:name="com.example.datadelivery.Charts"
+        android:name="com.example.datadelivery.Fragments.Charts"
         android:label="fragment_charts"
         tools:layout="@layout/fragment_charts" />
     <fragment
         android:id="@+id/courseDetail"
-        android:name="com.example.datadelivery.CourseDetail"
+        android:name="com.example.datadelivery.Fragments.CourseDetail"
         android:label="fragment_course_detail"
         tools:layout="@layout/fragment_course_detail" />
     <fragment
         android:id="@+id/allCourses"
-        android:name="com.example.datadelivery.AllCourses"
+        android:name="com.example.datadelivery.Fragments.AllCourses"
         android:label="fragment_all_courses"
         tools:layout="@layout/fragment_all_courses" />
     <fragment
         android:id="@+id/notifications2"
-        android:name="com.example.datadelivery.Notifications"
+        android:name="com.example.datadelivery.Fragments.Notifications"
         android:label="Notifications" >
         <action
             android:id="@+id/action_notifications2_to_myCourses"
@@ -65,5 +65,25 @@
         <action
             android:id="@+id/action_notifications2_to_charts"
             app:destination="@id/charts" />
+        <action
+            android:id="@+id/action_notifications2_to_notificationDetail"
+            app:destination="@id/notificationDetail" />
+        <action
+            android:id="@+id/action_notifications2_to_questionnaire"
+            app:destination="@id/questionnaire" />
     </fragment>
+    <fragment
+        android:id="@+id/notificationDetail"
+        android:name="com.example.datadelivery.NotificationDetail"
+        android:label="fragment_notification_detail"
+        tools:layout="@layout/fragment_notification_detail" >
+        <action
+            android:id="@+id/action_notificationDetail_to_questionnaire"
+            app:destination="@id/questionnaire" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionnaire"
+        android:name="com.example.datadelivery.Questionnaire"
+        android:label="fragment_questionnaire"
+        tools:layout="@layout/fragment_questionnaire" />
 </navigation>

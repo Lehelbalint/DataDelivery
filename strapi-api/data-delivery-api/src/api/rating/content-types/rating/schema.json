@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ratings",
+  "info": {
+    "singularName": "rating",
+    "pluralName": "ratings",
+    "displayName": "Rating"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "interest_rate": {
+      "type": "integer"
+    },
+    "relevance_rate": {
+      "type": "integer"
+    },
+    "friendly_teacher_rate": {
+      "type": "integer"
+    },
+    "fair_pointing_rate": {
+      "type": "integer"
+    },
+    "material_availability_rate": {
+      "type": "integer"
+    },
+    "timeschedule_rate": {
+      "type": "integer"
+    },
+    "flexibility_rate": {
+      "type": "integer"
+    },
+    "course_level": {
+      "type": "integer"
+    },
+    "teacher_rate": {
+      "type": "integer"
+    },
+    "final_course_rate": {
+      "type": "integer"
+    },
+    "course": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::course.course"
+    },
+    "student": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::student.student"
+    }
+  }
+}

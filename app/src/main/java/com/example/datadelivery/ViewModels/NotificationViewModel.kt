@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.datadelivery.API.DateDeliveryRepository
+import com.example.datadelivery.Models.Rating
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
@@ -20,6 +21,7 @@ class NotificationViewModelFactory(
 }
 class NotificationViewModel(private val repository: DateDeliveryRepository) : ViewModel() {
     var gradeList = MutableLiveData<Grade>()
+    var ratings = MutableLiveData<Rating>()
 
     fun getGrades() {
         viewModelScope.launch {
@@ -30,6 +32,24 @@ class NotificationViewModel(private val repository: DateDeliveryRepository) : Vi
                         // userList.value = response.body()?.data
                         gradeList.value = response.body()
                         Log.i("xxx-res", gradeList.value.toString())
+                    } else {
+                        Log.i("xxx-muvm", response.message())
+                    }
+                } catch (e: Exception) {
+                    Log.i("xxx-err", e.toString())
+                }
+            }
+        }
+    }
+    fun getRatings() {
+        viewModelScope.launch {
+            viewModelScope.launch {
+                try {
+                    val response = repository.getRatings()
+                    if (response.isSuccessful) {
+                        // userList.value = response.body()?.data
+                        ratings.value = response.body()
+                        Log.i("xxx-res", ratings.value.toString())
                     } else {
                         Log.i("xxx-muvm", response.message())
                     }

@@ -5,6 +5,7 @@ import retrofit2.Response
 import com.example.datadelivery.API.RetrofitInstance
 import com.example.datadelivery.Course
 import com.example.datadelivery.Grade
+import com.example.datadelivery.Models.Rating
 import com.example.datadelivery.StudentData
 
 
@@ -19,5 +20,9 @@ class DateDeliveryRepository {
     suspend fun getGrades(): Response<Grade>
     {
         return RetrofitInstance.api.getGrades()
+    }
+    suspend fun getRatings(): Response<Rating>
+    {
+        return RetrofitInstance.api.getRatings()
     }
 }

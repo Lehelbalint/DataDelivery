@@ -1,7 +1,9 @@
 package com.example.datadelivery.API
 
+
 import com.example.datadelivery.Course
 import com.example.datadelivery.Grade
+import com.example.datadelivery.Models.Rating
 import com.example.datadelivery.Student
 import com.example.datadelivery.StudentData
 import retrofit2.Response
@@ -15,4 +17,6 @@ interface DataDeliveryApi {
     suspend fun getCourses(): Response<Course>
     @GET(Constants.GET_GRADES_URL)
     suspend fun  getGrades(): Response<Grade>
+    @GET(Constants.GET_RATINGS_URL)
+    suspend fun  getRatings(): Response<Rating>
 }

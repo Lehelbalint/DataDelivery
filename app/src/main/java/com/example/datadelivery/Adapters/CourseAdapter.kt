@@ -1,13 +1,13 @@
 package com.example.datadelivery
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.datadelivery.Fragments.MyCourses
 
 
 interface OnItemClickListener{
@@ -15,11 +15,12 @@ interface OnItemClickListener{
 }
 
 class CourseAdapter(private val list: List<CourseItem>, private val allCourseList: List<CourseDataItem>,
-                    private val listener: MyCourses)  :  RecyclerView.Adapter<CourseAdapter.DataViewHolder>() {
+                    private val listener: MyCourses
+)  :  RecyclerView.Adapter<CourseAdapter.DataViewHolder>() {
     inner class DataViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView),
         View.OnClickListener {
-        var courseName: TextView = itemView.findViewById(R.id.course_name)
+        var courseName: TextView = itemView.findViewById(R.id.courseName)
         var teacherName: TextView = itemView.findViewById(R.id.teacher_name)
         var detailsIc: ImageView= itemView.findViewById(R.id.details_ic)
         init{

@@ -5,11 +5,12 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Charts">
+    tools:context=".Fragments.Charts">
     >
+
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/bar_chart"
-        android:layout_width="match_parent"
-        android:layout_height="800px"/>
+        android:layout_width="1000px"
+        android:layout_height="1000px" />
 
 </FrameLayout>

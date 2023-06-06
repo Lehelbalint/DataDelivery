@@ -11,7 +11,7 @@
 
     <TextView
 
-        android:id="@+id/course_name"
+        android:id="@+id/courseName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
@@ -43,6 +43,6 @@
         android:layout_marginBottom="5dp"
         android:text="Jhon Doe"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/course_name"
-        app:layout_constraintTop_toTopOf="@+id/course_name" />
+        app:layout_constraintStart_toStartOf="@+id/courseName"
+        app:layout_constraintTop_toTopOf="@+id/courseName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

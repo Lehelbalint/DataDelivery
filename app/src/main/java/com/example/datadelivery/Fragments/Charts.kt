@@ -1,13 +1,12 @@
-package com.example.datadelivery
+package com.example.datadelivery.Fragments
 
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import androidx.databinding.DataBindingUtil.setContentView
+import androidx.fragment.app.DialogFragment
+import com.example.datadelivery.R
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
@@ -15,7 +14,7 @@ import com.github.mikephil.charting.data.BarEntry
 
 
 
-class Charts : Fragment() {
+class Charts : DialogFragment() {
 
     private lateinit var barChart: BarChart
 

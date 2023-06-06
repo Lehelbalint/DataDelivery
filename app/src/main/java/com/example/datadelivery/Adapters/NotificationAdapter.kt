@@ -1,23 +1,39 @@
 package com.example.datadelivery
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.datadelivery.Fragments.Notifications
 
-class NotificationAdapter(private val list: List<Data_G>):  RecyclerView.Adapter<NotificationAdapter.DataViewHolder>()  {
+interface OnNotificationItemClickListener{
+    fun onItemClick(position: Int)
+}
+
+class NotificationAdapter(private val list: List<Data_G>,  private val listener: Notifications) :  RecyclerView.Adapter<NotificationAdapter.DataViewHolder>()  {
 
 
     inner class DataViewHolder(itemView: View) :
-        RecyclerView.ViewHolder(itemView) {
-        var courseName: TextView = itemView.findViewById(R.id.course_name)
-        var teacherName: TextView = itemView.findViewById(R.id.teacher_name)
-        var grade: TextView = itemView.findViewById(R.id.grade)
-        var gradeType: TextView = itemView.findViewById(R.id.grade_type)
-        var date: TextView = itemView.findViewById(R.id.date)
+        RecyclerView.ViewHolder(itemView), View.OnClickListener {
+        var courseName: TextView = itemView.findViewById(R.id.subject)
+        var date: TextView = itemView.findViewById(R.id.dateTime)
+        var myView: View = itemView.findViewById(R.id.notification_item)
+        init {
+            myView.setOnClickListener (this)
+        }
+        override fun onClick(p0: View?) {
+                val position : Int = adapterPosition
+                if( position != RecyclerView.NO_POSITION) {
+                    when (p0!!.id) {
+                        R.id.notification_item-> {
+                            listener.onItemClick(position)
+                        }
+                    }
+                }
+
+
+        }
 
     }
 
@@ -36,12 +52,6 @@ class NotificationAdapter(private val list: List<Data_G>):  RecyclerView.Adapter
         val currentItem = list[position]
         holder.courseName.text = currentItem.attributes.course?.data?.attributes?.name.toString()
         //Log.i("xxx-tch", getTeachersOfCourse(currentItem.attributes.name,allCourseList))
-        holder.teacherName.text = currentItem.attributes.teacher.data.attributes.name
-        holder.grade.text = currentItem.attributes.grade.toString()
-        if (currentItem.attributes.final)
-        holder.gradeType.text = "Final"
-        else
-            holder.gradeType.text = currentItem.attributes.percantage.toString()
         holder.date.text = currentItem.attributes.date.toString()
 
     }
