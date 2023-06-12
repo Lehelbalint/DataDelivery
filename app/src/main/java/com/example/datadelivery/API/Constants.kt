@@ -6,5 +6,6 @@ object Constants {
     const val GET_COURSES_URL = "courses?populate=*"
     const val GET_GRADES_URL = "grades?populate=*"
     const val GET_RATINGS_URL = "ratings?populate=*"
+    const val POST_RATINGS_URL = "ratings"
 
 }

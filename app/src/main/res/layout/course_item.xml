@@ -6,7 +6,7 @@
     android:layout_width="1080px"
     android:layout_height="160px"
     android:layout_margin="1dp"
-    android:background="@drawable/bg"
+    android:background="#06d48f"
     android:scrollbarSize="10dp">
 
     <TextView
@@ -15,9 +15,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
+        android:fontFamily="@font/acme"
         android:text="Android"
+        android:textColor="#FFFFFF"
         android:textFontWeight="500"
-        android:textSize="48px"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,7 +31,7 @@
         android:id="@+id/details_ic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="90px"
+        android:layout_marginStart="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -42,6 +45,9 @@
         android:layout_marginTop="36dp"
         android:layout_marginBottom="5dp"
         android:text="Jhon Doe"
+        android:fontFamily="@font/acme"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/courseName"
         app:layout_constraintTop_toTopOf="@+id/courseName" />

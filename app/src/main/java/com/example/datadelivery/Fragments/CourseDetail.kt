@@ -9,9 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
+import com.example.datadelivery.*
 import com.example.datadelivery.API.DateDeliveryRepository
-import com.example.datadelivery.NotificationViewModel
-import com.example.datadelivery.NotificationViewModelFactory
+import com.example.datadelivery.ViewModels.SharedChartsViewModel
 import com.example.datadelivery.ViewModels.SharedUserViewModel
 import com.example.datadelivery.databinding.FragmentCourseDetailBinding
 
@@ -19,6 +19,7 @@ import com.example.datadelivery.databinding.FragmentCourseDetailBinding
 class CourseDetail : Fragment() {
 
     val sharedViewModel: SharedUserViewModel by activityViewModels()
+    val sharedChartsViewModel : SharedChartsViewModel by activityViewModels ()
     private lateinit var notificationViewModel: NotificationViewModel
     private var _binding: FragmentCourseDetailBinding? = null
     private val binding get() = _binding!!
@@ -26,6 +27,7 @@ class CourseDetail : Fragment() {
         super.onCreate(savedInstanceState)
         val factory = NotificationViewModelFactory(DateDeliveryRepository())
         notificationViewModel = ViewModelProvider(this, factory).get(NotificationViewModel::class.java)
+
     }
 
     override fun onCreateView(
@@ -45,6 +47,9 @@ class CourseDetail : Fragment() {
         notificationViewModel.gradeList.observe(viewLifecycleOwner) {
             val currentCourseGrades =
                 notificationViewModel.gradeList.value?.data?.filter { it -> it.attributes.course?.data?.attributes?.name == currentCourse.attributes.name }
+            if (currentCourseGrades != null) {
+                sharedChartsViewModel.GradesHistogram = currentCourseGrades
+            }
             val myGrades =
                 currentCourseGrades?.filter { it -> it.attributes.student.data.attributes.name == sharedViewModel.currentUser.attributes.name }
 
@@ -60,7 +65,6 @@ class CourseDetail : Fragment() {
                 }
             }
             binding.showChartButton.setOnClickListener {
-                // Diagram ablak megjelenítése
                 showChartDialog()
             }
 
@@ -70,7 +74,7 @@ class CourseDetail : Fragment() {
     }
     private fun showChartDialog() {
         // Diagram ablakot létrehozása és megjelenítése
-        val chartDialog = Charts()
+        val chartDialog = BasicHistogram()
         chartDialog.show(parentFragmentManager, "chart_dialog")
     }
 }

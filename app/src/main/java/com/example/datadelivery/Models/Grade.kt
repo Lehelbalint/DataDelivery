@@ -17,13 +17,13 @@ data class Attributes_G(
     val updatedAt: String,
     val publishedAt: String,
     val date: String?,
-    val course: Course_Grade?,
+    val course: Course_Grade,
     val student: Student_G,
     val teacher: Teacher_G
 )
 
 data class Course_Grade(
-    val data: CourseData_G?
+    val data: CourseData_G
 )
 
 data class CourseData_G(

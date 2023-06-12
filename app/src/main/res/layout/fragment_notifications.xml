@@ -35,7 +35,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/bg"
+            android:background="#0b6c43"
             android:minHeight="?attr/actionBarSize">
 
 
@@ -44,9 +44,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
+                android:background="#0b6c43"
+                android:fontFamily="@font/acme"
                 android:gravity="center_vertical"
                 android:text="Latest Notes:"
-                android:textColor="@color/black"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp" />
 
         </androidx.appcompat.widget.Toolbar>

@@ -31,9 +31,17 @@ class NotificationDetail : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.test.setOnClickListener {
-            findNavController().navigate(R.id.action_notificationDetail_to_questionnaire)
+        val currentGrade = sharedGradeViewModel.myGrades[sharedGradeViewModel.position]
+        binding.courseName.text= currentGrade.attributes.course.data.attributes.name
+        binding.grade.text=currentGrade.attributes.grade.toString()
+        binding.date.text = currentGrade.attributes.date
+        binding.teacherName.text = currentGrade.attributes.teacher.data.attributes.name
+        if (currentGrade.attributes.final)
+        {
+            binding.gradeType.text="Final Grade"
         }
+        else
+        binding.gradeType.text = "${currentGrade.attributes.percantage}"+"% of final grade"
     }
 
 

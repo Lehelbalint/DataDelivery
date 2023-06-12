@@ -28,9 +28,9 @@ class AllCourses : Fragment() , OnItemClickListenerForAll {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentAllCoursesBinding.inflate(inflater, container, false)
+    ): View? { _binding = FragmentAllCoursesBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

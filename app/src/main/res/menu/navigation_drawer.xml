@@ -8,15 +8,18 @@
     <item
         android:id="@+id/notifications"
         tools:layout="@layout/fragment_notifications"
+        android:icon="@drawable/notification"
         android:title="Main" />
 
     <item
         android:id="@+id/myCourses"
         tools:layout="@layout/fragment_my_courses"
+        android:icon="@drawable/course"
         android:title="My Courses" />
     <item
         android:id="@+id/statistics"
         android:label="title_sing_out"
+        android:icon="@drawable/stat"
         tools:layout="@layout/fragment_charts"
         android:title="Statistics" />
 </menu>

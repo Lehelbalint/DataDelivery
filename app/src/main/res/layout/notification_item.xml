@@ -6,20 +6,21 @@
     android:layout_width="1080px"
     android:layout_height="220px"
     android:layout_margin="1dp"
-    android:background="@drawable/bg"
+    android:background="#06d48f"
     android:scrollbarSize="10dp">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="10dp"
-        android:text=" You got a new grade!!"
-        android:textColor="#FF0000"
+        android:fontFamily="@font/acme"
+        android:text="You got a new grade!"
+        android:textColor="#0b6c43"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -28,6 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="Subject:"
+        android:fontFamily="@font/acme"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView"
@@ -40,6 +43,8 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:text="Android"
+        android:fontFamily="@font/acme"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView3"
@@ -50,10 +55,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
+        android:fontFamily="@font/acme"
         android:text="01.06.2023"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
-        android:textStyle="bold"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="41dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/glogo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

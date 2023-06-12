@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E5E5E5">
+    android:background="#FFFFFF">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_all_courses"
@@ -18,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         tools:itemCount="15"
         tools:listitem="@layout/course_item" />
 
@@ -44,7 +44,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/bg"
+            android:background="#0b6c43"
             android:minHeight="?attr/actionBarSize">
 
 
@@ -55,8 +55,10 @@
                 android:layout_marginStart="20dp"
                 android:gravity="center_vertical"
                 android:text="All Courses:"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:fontFamily="@font/acme"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
