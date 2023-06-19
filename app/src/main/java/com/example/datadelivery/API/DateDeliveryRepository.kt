@@ -7,6 +7,7 @@ import com.example.datadelivery.Course
 import com.example.datadelivery.Grade
 import com.example.datadelivery.Models.AddRatingRequest
 import com.example.datadelivery.Models.AnswerMessage
+import com.example.datadelivery.Models.DepartmentClass
 import com.example.datadelivery.Models.Rating
 import com.example.datadelivery.StudentData
 
@@ -30,5 +31,9 @@ class DateDeliveryRepository {
     suspend fun addRating(request: AddRatingRequest): Response<AnswerMessage>
     {
         return RetrofitInstance.api.addRating(request)
+    }
+    suspend fun getDepartments() : Response<DepartmentClass>
+    {
+        return RetrofitInstance.api.getDepartments()
     }
 }

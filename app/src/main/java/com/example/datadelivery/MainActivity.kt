@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.statistics -> {
-                    controller.navigate(R.id.charts)
+                    controller.navigate(R.id.filter)
                     true
                 }
                 else -> super.onOptionsItemSelected(it)

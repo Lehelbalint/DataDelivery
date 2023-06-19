@@ -39,6 +39,8 @@ class BasicHistogram : DialogFragment() {
             counter += 1
         }
 
+
+
         val dataset = BarDataSet(entries, "Your Grades")
         dataset.color = setColor("#06d48f")
         val data = BarData(dataset)

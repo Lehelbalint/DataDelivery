@@ -11,7 +11,7 @@
 
     <TextView
 
-        android:id="@+id/courseName"
+        android:id="@+id/FilteredData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
@@ -49,6 +49,6 @@
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/courseName"
-        app:layout_constraintTop_toTopOf="@+id/courseName" />
+        app:layout_constraintStart_toStartOf="@+id/FilteredData"
+        app:layout_constraintTop_toTopOf="@+id/FilteredData" />
 </androidx.constraintlayout.widget.ConstraintLayout>

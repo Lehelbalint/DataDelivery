@@ -5,7 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0b6c43"
-    tools:context=".Fragments.CourseDetail">
+    tools:context=".Fragments.AllCourseDetail">
+
+    <RatingBar
+        android:id="@+id/difficultyLevel"
+        android:layout_width="243dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="3dp"
+        android:numStars="5"
+        android:scaleX=".4"
+        android:scaleY=".4"
+        android:stepSize="1"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toTopOf="@+id/textView10" />
+
+    <RatingBar
+        android:id="@+id/courseRating"
+        android:layout_width="240dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="3dp"
+        android:numStars="5"
+        android:rating="2"
+        android:scaleX=".4"
+        android:scaleY=".4"
+        android:stepSize="1"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/courseName"
@@ -16,7 +45,7 @@
         android:fontFamily="@font/acme"
         android:text="Course Name"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,21 +56,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+
+        android:text="Average:"
         android:fontFamily="@font/acme"
-        android:text="Your grades:"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/FilteredData"
-        app:layout_constraintTop_toBottomOf="@+id/FilteredData" />
+        app:layout_constraintStart_toStartOf="@+id/courseName"
+        app:layout_constraintTop_toBottomOf="@+id/courseName" />
 
     <TextView
-        android:id="@+id/grades"
+        android:id="@+id/avg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/acme"
-        android:text=" 9-33%, 10-60%, 5-7%"
+        android:text="8,55"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -52,9 +82,9 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/acme"
-        android:text="Final Grade: "
+        android:text="Median"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -62,10 +92,10 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
-        android:id="@+id/finalGrade"
+        android:id="@+id/median"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/acme"
         android:text="8"
         android:textColor="#FFFFFF"
@@ -74,41 +104,57 @@
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <Button
-        android:id="@+id/showChartButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"
-        android:text="Your Grades Histogram"
-        android:backgroundTint="#06d48f"
-        android:fontFamily="@font/acme"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <Button
-        android:id="@+id/showChartButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Department Grades Distribution"
-        android:backgroundTint="#06d48f"
-        android:fontFamily="@font/acme"
-        app:layout_constraintStart_toStartOf="@+id/showChartButton"
-        app:layout_constraintTop_toBottomOf="@+id/showChartButton" />
-
     <TextView
-        android:id="@+id/finalPercentage"
+        android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/acme"
+        android:text="Course Rating:"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:text="Your final grade is better than x% of other students "
-        app:layout_constraintStart_toStartOf="@+id/showChartButton2"
-        app:layout_constraintTop_toBottomOf="@+id/showChartButton2" />
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/acme"
+        android:text="Pass Rate:"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/passRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/acme"
+        android:text="50%"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/acme"
+        android:text="Difficulty Level:"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

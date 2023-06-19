@@ -54,7 +54,11 @@
         android:id="@+id/allCourses"
         android:name="com.example.datadelivery.Fragments.AllCourses"
         android:label="fragment_all_courses"
-        tools:layout="@layout/fragment_all_courses" />
+        tools:layout="@layout/fragment_all_courses" >
+        <action
+            android:id="@+id/action_allCourses_to_allCourseDetail"
+            app:destination="@id/allCourseDetail" />
+    </fragment>
     <fragment
         android:id="@+id/notifications2"
         android:name="com.example.datadelivery.Fragments.Notifications"
@@ -71,6 +75,9 @@
         <action
             android:id="@+id/action_notifications2_to_questionnaire"
             app:destination="@id/questionnaire" />
+        <action
+            android:id="@+id/action_notifications2_to_filter"
+            app:destination="@id/filter" />
     </fragment>
     <fragment
         android:id="@+id/notificationDetail"
@@ -86,4 +93,23 @@
         android:name="com.example.datadelivery.Questionnaire"
         android:label="fragment_questionnaire"
         tools:layout="@layout/fragment_questionnaire" />
+    <fragment
+        android:id="@+id/allCourseDetail"
+        android:name="com.example.datadelivery.Fragments.AllCourseDetail"
+        android:label="fragment_all_course_detail"
+        tools:layout="@layout/fragment_all_course_detail" />
+    <fragment
+        android:id="@+id/filter"
+        android:name="com.example.datadelivery.Fragments.Filter"
+        android:label="fragment_filter"
+        tools:layout="@layout/fragment_filter" >
+        <action
+            android:id="@+id/action_filter_to_statistics2"
+            app:destination="@id/statistics2" />
+    </fragment>
+    <fragment
+        android:id="@+id/statistics2"
+        android:name="com.example.datadelivery.Fragments.Statistics"
+        android:label="fragment_statistics"
+        tools:layout="@layout/fragment_statistics" />
 </navigation>

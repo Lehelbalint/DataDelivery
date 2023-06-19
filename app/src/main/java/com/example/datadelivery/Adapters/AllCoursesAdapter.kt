@@ -18,7 +18,7 @@ class AllCoursesAdapter( private val allCourseList: List<CourseDataItem>,
     inner class DataViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView),
         View.OnClickListener {
-        var courseName: TextView = itemView.findViewById(R.id.courseName)
+        var courseName: TextView = itemView.findViewById(R.id.FilteredData)
         var teacherName: TextView = itemView.findViewById(R.id.teacher_name)
         var detailsIc: ImageView = itemView.findViewById(R.id.details_ic)
         init{

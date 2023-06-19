@@ -10,10 +10,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.datadelivery.API.DateDeliveryRepository
-import com.example.datadelivery.LoginViewModel
-import com.example.datadelivery.LoginViewModelFactory
-import com.example.datadelivery.R
-import com.example.datadelivery.Student
 import com.example.datadelivery.ViewModels.SharedUserViewModel
 import com.example.datadelivery.databinding.FragmentLogInBinding
 
@@ -59,7 +55,7 @@ class LogIn : Fragment() {
                 else if (Users != null) {
                     if (findStudent(Users.data,studentCode,password)) {
                         sharedViewModel.currentUser =  findStudentById(studentCode,Users.data)
-                       // Log.i("xxx-pfm",sharedViewModel.currentUser.attributes.courses.data[0].attributes.name)
+                        // Log.i("xxx-pfm",sharedViewModel.currentUser.attributes.courses.data[0].attributes.name)
                         findNavController().navigate(R.id.notifications2)
                     }
                     else

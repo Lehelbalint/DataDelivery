@@ -29,6 +29,7 @@ class NotificationDetail : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val currentGrade = sharedGradeViewModel.myGrades[sharedGradeViewModel.position]

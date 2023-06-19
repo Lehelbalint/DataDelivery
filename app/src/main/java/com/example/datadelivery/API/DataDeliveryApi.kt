@@ -1,12 +1,13 @@
 package com.example.datadelivery.API
 
 
+
 import com.example.datadelivery.Course
 import com.example.datadelivery.Grade
 import com.example.datadelivery.Models.AddRatingRequest
 import com.example.datadelivery.Models.AnswerMessage
+import com.example.datadelivery.Models.DepartmentClass
 import com.example.datadelivery.Models.Rating
-import com.example.datadelivery.Student
 import com.example.datadelivery.StudentData
 import retrofit2.Response
 import retrofit2.http.Body
@@ -25,5 +26,7 @@ interface DataDeliveryApi {
     suspend fun  getRatings(): Response<Rating>
     @POST(Constants.POST_RATINGS_URL)
     suspend fun  addRating(@Body request: AddRatingRequest) : Response<AnswerMessage>
+    @GET(Constants.GET_DEPARTMENTS_URL)
+    suspend fun getDepartments() : Response<DepartmentClass>
 
 }

@@ -8,5 +8,5 @@ class SharedUserViewModel : ViewModel(){
     lateinit var currentUser : Student
     var position = 0
     lateinit var courseList : Course
-    var allPosition = 0
+    lateinit var allCourseList: Course
 }

@@ -42,6 +42,11 @@
       "relation": "manyToOne",
       "target": "api::teacher.teacher",
       "inversedBy": "grades"
+    },
+    "department": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::department.department"
     }
   }
 }

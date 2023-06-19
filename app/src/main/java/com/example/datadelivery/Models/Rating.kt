@@ -58,8 +58,5 @@ data class StudentAttributes(
     val neptun_id: String,
     val email: String,
     val name: String,
-    val createdAt: String,
-    val updatedAt: String,
-    val publishedAt: String,
     val password: String
 )

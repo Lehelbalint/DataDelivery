@@ -11,9 +11,6 @@ data class CourseDataItem(
 
 data class CourseDataAttributes(
     val name: String,
-    val createdAt: String,
-    val updatedAt: String,
-    val publishedAt: String,
     val teachers: Teachers
 ) {
     data class Teachers(
@@ -28,8 +25,5 @@ data class CourseDataAttributes(
     data class TeacherAttributes(
         val name: String,
         val email: String,
-        val createdAt: String,
-        val updatedAt: String,
-        val publishedAt: String
     )
 }

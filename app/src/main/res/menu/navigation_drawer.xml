@@ -20,6 +20,6 @@
         android:id="@+id/statistics"
         android:label="title_sing_out"
         android:icon="@drawable/stat"
-        tools:layout="@layout/fragment_charts"
+        tools:layout="@layout/fragment_filter"
         android:title="Statistics" />
 </menu>

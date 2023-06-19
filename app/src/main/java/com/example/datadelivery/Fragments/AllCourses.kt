@@ -46,8 +46,8 @@ class AllCourses : Fragment() , OnItemClickListenerForAll {
         }
 
     override fun onItemClick(position: Int) {
-        sharedViewModel.allPosition = position
-        findNavController().navigate(R.id.action_myCourses_to_courseDetail)
+        sharedViewModel.position = position
+        findNavController().navigate(R.id.action_allCourses_to_allCourseDetail)
     }
 }
 
