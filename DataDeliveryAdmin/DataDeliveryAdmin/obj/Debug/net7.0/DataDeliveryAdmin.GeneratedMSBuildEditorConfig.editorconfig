@@ -1,0 +1,77 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = DataDeliveryAdmin
+build_property.RootNamespace = DataDeliveryAdmin
+build_property.ProjectDir = D:\III.ev\DataDeliveryAdmin\DataDeliveryAdmin\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\III.ev\DataDeliveryAdmin\DataDeliveryAdmin
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/III.ev/DataDeliveryAdmin/DataDeliveryAdmin/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/III.ev/DataDeliveryAdmin/DataDeliveryAdmin/Views/CourseGrade/AddGrade.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlR3JhZGVcQWRkR3JhZGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/III.ev/DataDeliveryAdmin/DataDeliveryAdmin/Views/CourseGrade/CourseStudents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlR3JhZGVcQ291cnNlU3R1ZGVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/III.ev/DataDeliveryAdmin/DataDeliveryAdmin/Views/CourseGrade/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlR3JhZGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/III.ev/DataDeliveryAdmin/DataDeliveryAdmin/Views/Department/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/III.ev/DataDeliveryAdmin/DataDeliveryAdmin/Views/Department/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/III.ev/DataDeliveryAdmin/DataDeliveryAdmin/Views/Grade/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/III.ev/DataDeliveryAdmin/DataDeliveryAdmin/Views/Grade/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/III.ev/DataDeliveryAdmin/DataDeliveryAdmin/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/III.ev/DataDeliveryAdmin/DataDeliveryAdmin/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/III.ev/DataDeliveryAdmin/DataDeliveryAdmin/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/III.ev/DataDeliveryAdmin/DataDeliveryAdmin/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/III.ev/DataDeliveryAdmin/DataDeliveryAdmin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/III.ev/DataDeliveryAdmin/DataDeliveryAdmin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/III.ev/DataDeliveryAdmin/DataDeliveryAdmin/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-w2hoq4kg8i

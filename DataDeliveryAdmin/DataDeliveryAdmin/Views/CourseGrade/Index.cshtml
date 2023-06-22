@@ -1,0 +1,30 @@
+﻿@model DataDeliveryAdmin.Models.CourseViewModel
+
+<h1>Kurzusok</h1>
+
+<table class="table" id="table">
+    <thead>
+        <tr>
+            <th>Kurzus név</th>
+            <th>Tanárok</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model.data)
+        {
+            <tr>
+                <td>@course.attributes.name</td>
+                <td>
+                    @foreach (var teacher in course.attributes.teachers.data)
+                    {
+                        <span>@teacher.attributes.name</span>
+
+                        <br />
+                    }
+                </td>
+                <td> <a href="CourseStudents/@course.id">Course Students</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

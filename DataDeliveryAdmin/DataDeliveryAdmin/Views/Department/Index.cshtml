@@ -1,0 +1,25 @@
+﻿@model DataDeliveryAdmin.Models.DepartmentViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List</h1>
+
+<table class="table" id="table">
+	<thead>
+		<tr>
+			<th>Nev</th>
+			<th>Evfolyam</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var department in Model.Data)
+		{
+			<tr>
+				<td>@department.Attributes.DepartmentName</td>
+				<td>@department.Attributes.Year.ToString()</td
+			</tr>
+		}
+	</tbody>
+</table>

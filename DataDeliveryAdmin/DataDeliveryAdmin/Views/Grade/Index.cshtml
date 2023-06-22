@@ -1,0 +1,46 @@
+﻿@model DataDeliveryAdmin.Models.GradeViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Grade List</h1>
+<form action="Index">
+	<div class="input-group md-form form-control-sm form-2 pl-0">
+		<input name="clientName" class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" />
+		<div class="input-group-append">
+			<span class="input-group-text red lighten-3" id="basic-text1">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</span>
+		</div>
+
+	</div>
+</form>
+
+<table class="table" id="table">
+	<thead>
+		<tr>
+			<th>Grade</th>
+			<th>Percentage</th>
+			<th>Date</th>
+			<th>Course Name</th>
+			<th>Student Id</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var grade in Model.Data )
+		{
+			<tr>
+				<td>@grade.Attributes.Grade.ToString()</td>
+				<td>@grade.Attributes.Percantage.ToString()</td>
+				<td>@grade.Attributes.Date.ToString()</td>
+				<td>@grade.Attributes.Course.Data.Attributes.Name</td>
+				<td>@grade.Attributes.Student.Data.Attributes.Neptun_Id</td>
+				<td>
+					<a href="Edit/@grade.Id">Edit</a>
+					<a href="Delete/@grade.Id">Delete</a>
+			</tr>
+		}
+	</tbody>
+</table>

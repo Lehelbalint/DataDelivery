@@ -1,0 +1,41 @@
+﻿@model DataDeliveryAdmin.Models.StudentViewModel
+
+
+<body>
+<table class="table" id="table">
+	<thead>
+		<tr>
+			<th>Neptun Id</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Department</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var student in Model.data)
+		{
+			<tr>
+				<td>@student.attributes.neptun_id</td>
+				<td>@student.attributes.name</td>
+				<td>@student.attributes.email</td>
+				<td>@student.attributes.department</td>
+				<td>
+					<a href="#" onclick="redirectToNewPage(@Model.Courseid, @student.id); return false;">AddGrade</a>
+
+					
+			</tr>
+		}
+
+
+
+	</tbody>
+</table>
+	<script>
+		function redirectToNewPage(courseId, studentId) {
+			var newUrl = "/CourseGrade/AddGrade?courseId=" + courseId + "&studentId=" + studentId;
+			window.location.replace(newUrl);
+		}
+		</script>
+</body>
+
