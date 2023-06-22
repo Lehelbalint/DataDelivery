@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_logIn_to_notifications2"
             app:destination="@id/notifications2" />
+        <action
+            android:id="@+id/action_logIn_to_filter"
+            app:destination="@id/filter" />
     </fragment>
     <fragment
         android:id="@+id/charts"
@@ -106,10 +109,30 @@
         <action
             android:id="@+id/action_filter_to_statistics2"
             app:destination="@id/statistics2" />
+        <action
+            android:id="@+id/action_filter_to_secondFilter"
+            app:destination="@id/secondFilter" />
     </fragment>
     <fragment
         android:id="@+id/statistics2"
         android:name="com.example.datadelivery.Fragments.Statistics"
         android:label="fragment_statistics"
         tools:layout="@layout/fragment_statistics" />
+    <fragment
+        android:id="@+id/secondFilter"
+        android:name="com.example.datadelivery.Fragments.SecondFilter"
+        android:label="fragment_second_filter"
+        tools:layout="@layout/fragment_second_filter" >
+        <action
+            android:id="@+id/action_secondFilter_to_statistics2"
+            app:destination="@id/statistics2" />
+        <action
+            android:id="@+id/action_secondFilter_to_compare"
+            app:destination="@id/compare" />
+    </fragment>
+    <fragment
+        android:id="@+id/compare"
+        android:name="com.example.datadelivery.Fragments.Compare"
+        android:label="fragment_compare"
+        tools:layout="@layout/fragment_compare" />
 </navigation>

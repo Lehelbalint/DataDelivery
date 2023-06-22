@@ -32,8 +32,8 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/FilteredData"
-        app:layout_constraintTop_toBottomOf="@+id/FilteredData" />
+        app:layout_constraintStart_toStartOf="@+id/courseName"
+        app:layout_constraintTop_toBottomOf="@+id/courseName" />
 
     <TextView
         android:id="@+id/grades"

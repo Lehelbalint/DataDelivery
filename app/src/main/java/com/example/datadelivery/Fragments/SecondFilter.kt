@@ -1,7 +1,6 @@
 package com.example.datadelivery.Fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,27 +10,26 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.datadelivery.API.DateDeliveryRepository
-import com.example.datadelivery.NotificationViewModel
-import com.example.datadelivery.NotificationViewModelFactory
 import com.example.datadelivery.R
 import com.example.datadelivery.ViewModels.FilterViewModel
 import com.example.datadelivery.ViewModels.FilterViewModelFactory
 import com.example.datadelivery.ViewModels.SharedChartsViewModel
 import com.example.datadelivery.databinding.FragmentFilterBinding
-import com.example.datadelivery.databinding.FragmentQuestionnaireBinding
+import com.example.datadelivery.databinding.FragmentSecondFilterBinding
 
 
-class Filter : Fragment() {
 
-    private var _binding: FragmentFilterBinding? = null
+class SecondFilter : Fragment() {
+
+    private var _binding: FragmentSecondFilterBinding? = null
     private val binding get() = _binding!!
     private lateinit var filterViewModel: FilterViewModel
-    val sharedChartsViewModel : SharedChartsViewModel  by activityViewModels()
+    val sharedChartsViewModel : SharedChartsViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val factory = FilterViewModelFactory(DateDeliveryRepository())
-       filterViewModel = ViewModelProvider(this, factory).get(FilterViewModel::class.java)
+        filterViewModel = ViewModelProvider(this, factory).get(FilterViewModel::class.java)
 
     }
 
@@ -40,7 +38,7 @@ class Filter : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentFilterBinding.inflate(inflater, container, false)
+        _binding = FragmentSecondFilterBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -82,21 +80,13 @@ class Filter : Fragment() {
 
         }
 
-        binding.send.setOnClickListener {
-            sharedChartsViewModel.course = binding.spinnerCourse.selectedItem.toString()
-            sharedChartsViewModel.department = binding.spinnerDepartment.selectedItem.toString()
-            sharedChartsViewModel.type = binding.spinnerGradeType.selectedItem.toString()
-            sharedChartsViewModel.year = binding.spinnerYear.selectedItem.toString()
-
-            findNavController().navigate(R.id.action_filter_to_statistics2)
-
-        }
         binding.button2.setOnClickListener {
-            sharedChartsViewModel.course = binding.spinnerCourse.selectedItem.toString()
-            sharedChartsViewModel.department = binding.spinnerDepartment.selectedItem.toString()
-            sharedChartsViewModel.type = binding.spinnerGradeType.selectedItem.toString()
-            sharedChartsViewModel.year = binding.spinnerYear.selectedItem.toString()
-            findNavController().navigate(R.id.action_filter_to_secondFilter)
+            sharedChartsViewModel.course2 = binding.spinnerCourse.selectedItem.toString()
+            sharedChartsViewModel.department2 = binding.spinnerDepartment.selectedItem.toString()
+            sharedChartsViewModel.type2 = binding.spinnerGradeType.selectedItem.toString()
+            sharedChartsViewModel.year2 = binding.spinnerYear.selectedItem.toString()
+
+            findNavController().navigate(R.id.action_secondFilter_to_compare)
         }
     }
 

@@ -14,12 +14,15 @@ import com.example.datadelivery.Data_G
 import com.example.datadelivery.Models.Data
 import com.example.datadelivery.NotificationViewModel
 import com.example.datadelivery.NotificationViewModelFactory
+import com.example.datadelivery.R
 import com.example.datadelivery.ViewModels.SharedChartsViewModel
+import com.example.datadelivery.databinding.FragmentCompareBinding
+import com.example.datadelivery.databinding.FragmentCompareDistributionBinding
 import com.example.datadelivery.databinding.FragmentStatisticsBinding
 
-class Statistics : Fragment() {
+class Compare : Fragment() {
 
-    private var _binding: FragmentStatisticsBinding? = null
+    private var _binding: FragmentCompareBinding? = null
     private val binding get() = _binding!!
     private lateinit var notificationViewModel: NotificationViewModel
     val sharedChartsViewModel : SharedChartsViewModel by activityViewModels()
@@ -36,7 +39,7 @@ class Statistics : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentStatisticsBinding.inflate(inflater, container, false)
+        _binding = FragmentCompareBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -50,16 +53,26 @@ class Statistics : Fragment() {
                 filterData(
                     it1.data,sharedChartsViewModel.department,sharedChartsViewModel.course,sharedChartsViewModel.year,sharedChartsViewModel.type)
             }
+            val secondGradeList = notificationViewModel.gradeList.value?.let { it1 ->
+                filterData(
+                    it1.data,sharedChartsViewModel.department2,sharedChartsViewModel.course2,sharedChartsViewModel.year2,sharedChartsViewModel.type2)
+            }
             if (currentGradeList != null) {
                 Log.i("xxx-grades",currentGradeList.size.toString())
                 binding.avg.text=calculateGradeAverage(currentGradeList).toString()
                 binding.median.text = calculateMedianGrade(currentGradeList).toString()
                 binding.passRate.text = calculatePassingRate(currentGradeList).toString()+"%"
+                binding.avg2.text=calculateGradeAverage(secondGradeList).toString()
+                binding.median2.text = calculateMedianGrade(secondGradeList).toString()
+                binding.passRate2.text = calculatePassingRate(secondGradeList).toString()+"%"
             }
             else {
                 binding.avg.text = ""
                 binding.median.text = ""
                 binding.passRate.text = ""
+                binding.avg2.text = ""
+                binding.median2.text = ""
+                binding.passRate2.text = ""
             }
             notificationViewModel.getRatings()
             notificationViewModel.ratings.observe(viewLifecycleOwner)
@@ -68,16 +81,27 @@ class Statistics : Fragment() {
                     val currentCourseRatings =
                         notificationViewModel.ratings.value?.data?.filter { it -> it.attributes.course.data.attributes.name == sharedChartsViewModel.course }
 
+                    val secondCourseRatings =
+                        notificationViewModel.ratings.value?.data?.filter { it -> it.attributes.course.data.attributes.name == sharedChartsViewModel.course }
+
                     binding.courseRating.rating =
                         calculateCourseRating(currentCourseRatings).toFloat()
                     binding.difficultyLevel.rating =
                         calculateCourseLevel(currentCourseRatings).toFloat()
+                    binding.courseRating2.rating =
+                        calculateCourseRating(secondCourseRatings).toFloat()
+                    binding.difficultyLevel2.rating =
+                        calculateCourseLevel(secondCourseRatings).toFloat()
                 }
                 else
                 {
                     binding.courseRating.rating =
                         calculateCourseRating(notificationViewModel.ratings.value?.data).toFloat()
                     binding.difficultyLevel.rating =
+                        calculateCourseLevel(notificationViewModel.ratings.value?.data).toFloat()
+                    binding.courseRating2.rating =
+                        calculateCourseRating(notificationViewModel.ratings.value?.data).toFloat()
+                    binding.difficultyLevel2.rating =
                         calculateCourseLevel(notificationViewModel.ratings.value?.data).toFloat()
                 }
             }
@@ -90,6 +114,9 @@ class Statistics : Fragment() {
             binding.button4.setOnClickListener {
                 if (currentGradeList != null) {
                     sharedChartsViewModel.GradesHistogram = currentGradeList
+                    if (secondGradeList != null) {
+                        sharedChartsViewModel.GradeHistogram2=secondGradeList
+                    }
                 }
                 showDistributionChartDialog()
             }
@@ -105,7 +132,7 @@ class Statistics : Fragment() {
     }
     private fun showDistributionChartDialog()
     {
-        val chartDialog = DistributionHistogram()
+        val chartDialog =  CompareDistribution()
         chartDialog.show(parentFragmentManager, "chart_dialog")
     }
     fun filterData(dataList: List<Data_G>, filterDepartment: String, filterCourse: String, filterYear: String, filterIsFinal: String): List<Data_G> {

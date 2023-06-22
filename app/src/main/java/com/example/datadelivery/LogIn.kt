@@ -42,6 +42,9 @@ class LogIn : Fragment() {
             if (Users != null) {
                 //Log.i("xxx-pfm", Users.data.toString())
             }
+            binding.guest.setOnClickListener {
+                findNavController().navigate(R.id.action_logIn_to_filter)
+            }
             binding.button.setOnClickListener {
                 val studentCode = binding.studentCodeEdittext.text.toString().trim()
                 val password = binding.passwordEdittext.text.toString().trim()
@@ -81,40 +84,3 @@ fun findStudent(studentData: List<Student>, student_code: String, password: Stri
 fun findStudentById(neptun_id: String ,students: List<Student>): Student {
     return students.find { it.attributes.neptun_id == neptun_id }!!
 }
-
-
-//        button.setOnClickListener {
-//            val email = editText1.text.toString().trim()
-//            val password = editText2.text.toString().trim()
-//            if (email.isEmpty() || password.isEmpty()) {
-//                Toast.makeText(
-//                    this.requireContext(),
-//                    "Please, enter your email and password",
-//                    Toast.LENGTH_LONG
-//                ).show()
-//            } else {
-//                loginViewModel.login(LoginRequest(email, password))
-//            }
-//        }
-//
-//        loginViewModel.loginResult.observe(viewLifecycleOwner) {
-//            // Save data to preferences
-//            if( it == LoginResult.INVALID_CREDENTIALS){
-//                Toast.makeText(
-//                    this.requireContext(),
-//                    "Invalid credentials",
-//                    Toast.LENGTH_LONG
-//                ).show()
-//            }
-//            if ( it == LoginResult.SUCCESS ) {
-//                val prefs = requireActivity().getPreferences(Context.MODE_PRIVATE)
-//                val edit = prefs.edit()
-//                edit.putString("token", MyApplication.token)
-//                edit.putLong("deadline", MyApplication.deadline)
-//                edit.putString("email", editText1.text.toString())
-//                edit.apply()
-//                findNavController().navigate(R.id.activities)
-//            }
-//        }
-//
-//    }
