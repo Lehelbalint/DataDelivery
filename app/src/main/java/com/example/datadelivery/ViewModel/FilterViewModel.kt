@@ -1,37 +1,37 @@
-package com.example.datadelivery
+package com.example.datadelivery.ViewModel
 
-import android.app.Notification
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.datadelivery.API.DateDeliveryRepository
-import com.example.datadelivery.Models.Rating
+import com.example.datadelivery.Course
+import com.example.datadelivery.Model.DepartmentClass
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
-
-class NotificationViewModelFactory(
+class FilterViewModelFactory(
     private val repository: DateDeliveryRepository
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return NotificationViewModel( repository) as T
+        return FilterViewModel( repository) as T
     }
 }
-class NotificationViewModel(private val repository: DateDeliveryRepository) : ViewModel() {
-    var gradeList = MutableLiveData<Grade>()
-    var ratings = MutableLiveData<Rating>()
 
-    fun getGrades() {
+class FilterViewModel(val repository: DateDeliveryRepository) : ViewModel() {
+    var courseList = MutableLiveData<Course>()
+    var departmentList = MutableLiveData<DepartmentClass>()
+
+    fun getCourses() {
         viewModelScope.launch {
             viewModelScope.launch {
                 try {
-                    val response = repository.getGrades()
+                    val response = repository.getCourses()
                     if (response.isSuccessful) {
                         // userList.value = response.body()?.data
-                        gradeList.value = response.body()
-                        Log.i("xxx-res", gradeList.value.toString())
+                        courseList.value = response.body()
+                        Log.i("xxx-res", courseList.value.toString())
                     } else {
                         Log.i("xxx-muvm", response.message())
                     }
@@ -41,15 +41,15 @@ class NotificationViewModel(private val repository: DateDeliveryRepository) : Vi
             }
         }
     }
-    fun getRatings() {
+    fun getDepartments() {
         viewModelScope.launch {
             viewModelScope.launch {
                 try {
-                    val response = repository.getRatings()
+                    val response = repository.getDepartments()
                     if (response.isSuccessful) {
                         // userList.value = response.body()?.data
-                        ratings.value = response.body()
-                        Log.i("xxx-res", ratings.value.toString())
+                        departmentList.value = response.body()
+                        Log.i("xxx-res", departmentList.value.toString())
                     } else {
                         Log.i("xxx-muvm", response.message())
                     }

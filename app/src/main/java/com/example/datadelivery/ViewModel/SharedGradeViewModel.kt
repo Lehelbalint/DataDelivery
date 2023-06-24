@@ -1,4 +1,4 @@
-package com.example.datadelivery.ViewModels
+package com.example.datadelivery.ViewModel
 
 import androidx.lifecycle.ViewModel
 import com.example.datadelivery.Data_G

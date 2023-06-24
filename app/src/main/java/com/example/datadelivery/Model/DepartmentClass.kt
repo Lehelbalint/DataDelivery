@@ -1,4 +1,4 @@
-package com.example.datadelivery.Models
+package com.example.datadelivery.Model
 
 data class DepartmentClass(
     val data: List<DepartmentData>

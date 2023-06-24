@@ -7,9 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
-import com.example.datadelivery.R
-import com.example.datadelivery.ViewModels.SharedGradeViewModel
+import com.example.datadelivery.ViewModel.SharedGradeViewModel
 import com.example.datadelivery.databinding.FragmentNotificationDetailBinding
 
 class NotificationDetail : Fragment() {

@@ -1,4 +1,4 @@
-package com.example.datadelivery.Models
+package com.example.datadelivery.Model
 
 data class AddRatingRequest(
     val data: Data

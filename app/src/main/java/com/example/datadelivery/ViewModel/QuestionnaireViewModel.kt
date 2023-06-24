@@ -1,4 +1,4 @@
-package com.example.datadelivery.ViewModels
+package com.example.datadelivery.ViewModel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -6,9 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.datadelivery.API.DateDeliveryRepository
-import com.example.datadelivery.Course
-import com.example.datadelivery.Models.AddRatingRequest
-import com.example.datadelivery.Models.AnswerMessage
+import com.example.datadelivery.Model.AddRatingRequest
+import com.example.datadelivery.Model.AnswerMessage
 import kotlinx.coroutines.launch
 import java.lang.Exception
 

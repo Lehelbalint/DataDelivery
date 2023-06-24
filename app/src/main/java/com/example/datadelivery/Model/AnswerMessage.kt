@@ -1,4 +1,4 @@
-package com.example.datadelivery.Models
+package com.example.datadelivery.Model
 
 import com.squareup.moshi.JsonClass
 

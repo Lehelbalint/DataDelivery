@@ -1,6 +1,4 @@
-package com.example.datadelivery.Models
-
-import java.time.LocalDateTime
+package com.example.datadelivery.Model
 
 data class Rating(
     val data: List<Data>

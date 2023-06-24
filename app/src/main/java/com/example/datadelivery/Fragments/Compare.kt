@@ -1,6 +1,5 @@
 package com.example.datadelivery.Fragments
 
-import DistributionHistogram
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,14 +10,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.datadelivery.API.DateDeliveryRepository
 import com.example.datadelivery.Data_G
-import com.example.datadelivery.Models.Data
+import com.example.datadelivery.Model.Data
 import com.example.datadelivery.NotificationViewModel
 import com.example.datadelivery.NotificationViewModelFactory
-import com.example.datadelivery.R
-import com.example.datadelivery.ViewModels.SharedChartsViewModel
+import com.example.datadelivery.ViewModel.SharedChartsViewModel
 import com.example.datadelivery.databinding.FragmentCompareBinding
-import com.example.datadelivery.databinding.FragmentCompareDistributionBinding
-import com.example.datadelivery.databinding.FragmentStatisticsBinding
 
 class Compare : Fragment() {
 

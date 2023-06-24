@@ -1,7 +1,6 @@
 package com.example.datadelivery.Fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,14 +10,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.datadelivery.API.DateDeliveryRepository
-import com.example.datadelivery.NotificationViewModel
-import com.example.datadelivery.NotificationViewModelFactory
 import com.example.datadelivery.R
-import com.example.datadelivery.ViewModels.FilterViewModel
-import com.example.datadelivery.ViewModels.FilterViewModelFactory
-import com.example.datadelivery.ViewModels.SharedChartsViewModel
+import com.example.datadelivery.ViewModel.FilterViewModel
+import com.example.datadelivery.ViewModel.FilterViewModelFactory
+import com.example.datadelivery.ViewModel.SharedChartsViewModel
 import com.example.datadelivery.databinding.FragmentFilterBinding
-import com.example.datadelivery.databinding.FragmentQuestionnaireBinding
 
 
 class Filter : Fragment() {

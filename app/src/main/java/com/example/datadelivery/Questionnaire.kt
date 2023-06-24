@@ -11,11 +11,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.datadelivery.API.DateDeliveryRepository
-import com.example.datadelivery.Models.AddRatingRequest
-import com.example.datadelivery.ViewModels.QuestionnaireViewModel
-import com.example.datadelivery.ViewModels.QuestionnaireViewModelFactory
-import com.example.datadelivery.ViewModels.SharedGradeViewModel
-import com.example.datadelivery.ViewModels.SharedUserViewModel
+import com.example.datadelivery.Model.AddRatingRequest
+import com.example.datadelivery.ViewModel.QuestionnaireViewModel
+import com.example.datadelivery.ViewModel.QuestionnaireViewModelFactory
+import com.example.datadelivery.ViewModel.SharedGradeViewModel
+import com.example.datadelivery.ViewModel.SharedUserViewModel
 import com.example.datadelivery.databinding.FragmentQuestionnaireBinding
 
 class Questionnaire : Fragment() {

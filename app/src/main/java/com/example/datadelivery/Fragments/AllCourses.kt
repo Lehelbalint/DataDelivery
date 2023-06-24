@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.datadelivery.AllCoursesAdapter
 import com.example.datadelivery.OnItemClickListenerForAll
 import com.example.datadelivery.R
-import com.example.datadelivery.ViewModels.SharedUserViewModel
+import com.example.datadelivery.ViewModel.SharedUserViewModel
 import com.example.datadelivery.databinding.FragmentAllCoursesBinding
 
 class AllCourses : Fragment() , OnItemClickListenerForAll {

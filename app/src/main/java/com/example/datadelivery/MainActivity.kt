@@ -4,13 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.datadelivery.API.DateDeliveryRepository
-import com.example.datadelivery.ViewModels.SharedChartsViewModel
-import com.example.datadelivery.ViewModels.SharedUserViewModel
+import com.example.datadelivery.ViewModel.SharedUserViewModel
 import com.example.datadelivery.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -41,10 +38,10 @@ class MainActivity : AppCompatActivity() {
 
                 navView.visibility = View.GONE
             }
-            if (destination.id == R.id.filter && sharedUserViewModel.currentUser==null)
-            {
-                navView.visibility= View.GONE
-            }
+//            if (destination.id == R.id.filter && sharedUserViewModel.currentUser==null)
+//            {
+//                navView.visibility= View.GONE
+//            }
             else {
                 navView.visibility = View.VISIBLE
             }

@@ -12,13 +12,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.datadelivery.API.DateDeliveryRepository
-import com.example.datadelivery.Models.Rating
+import com.example.datadelivery.Model.Rating
 import com.example.datadelivery.NotificationAdapter
 import com.example.datadelivery.NotificationViewModel
 import com.example.datadelivery.NotificationViewModelFactory
 import com.example.datadelivery.R
-import com.example.datadelivery.ViewModels.SharedGradeViewModel
-import com.example.datadelivery.ViewModels.SharedUserViewModel
+import com.example.datadelivery.ViewModel.SharedGradeViewModel
+import com.example.datadelivery.ViewModel.SharedUserViewModel
 import com.example.datadelivery.databinding.FragmentNotificationsBinding
 
 class Notifications : Fragment() {

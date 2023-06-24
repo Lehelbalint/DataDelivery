@@ -11,10 +11,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.datadelivery.API.DateDeliveryRepository
 import com.example.datadelivery.R
-import com.example.datadelivery.ViewModels.FilterViewModel
-import com.example.datadelivery.ViewModels.FilterViewModelFactory
-import com.example.datadelivery.ViewModels.SharedChartsViewModel
-import com.example.datadelivery.databinding.FragmentFilterBinding
+import com.example.datadelivery.ViewModel.FilterViewModel
+import com.example.datadelivery.ViewModel.FilterViewModelFactory
+import com.example.datadelivery.ViewModel.SharedChartsViewModel
 import com.example.datadelivery.databinding.FragmentSecondFilterBinding
 
 

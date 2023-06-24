@@ -1,4 +1,4 @@
-package com.example.datadelivery.ViewModels
+package com.example.datadelivery
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -6,33 +6,31 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.datadelivery.API.DateDeliveryRepository
-import com.example.datadelivery.Course
-import com.example.datadelivery.Department_G
-import com.example.datadelivery.Models.DepartmentClass
+import com.example.datadelivery.Model.Rating
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
-class FilterViewModelFactory(
+
+class NotificationViewModelFactory(
     private val repository: DateDeliveryRepository
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return FilterViewModel( repository) as T
+        return NotificationViewModel( repository) as T
     }
 }
+class NotificationViewModel(private val repository: DateDeliveryRepository) : ViewModel() {
+    var gradeList = MutableLiveData<Grade>()
+    var ratings = MutableLiveData<Rating>()
 
-class FilterViewModel(val repository: DateDeliveryRepository) : ViewModel() {
-    var courseList = MutableLiveData<Course>()
-    var departmentList = MutableLiveData<DepartmentClass>()
-
-    fun getCourses() {
+    fun getGrades() {
         viewModelScope.launch {
             viewModelScope.launch {
                 try {
-                    val response = repository.getCourses()
+                    val response = repository.getGrades()
                     if (response.isSuccessful) {
                         // userList.value = response.body()?.data
-                        courseList.value = response.body()
-                        Log.i("xxx-res", courseList.value.toString())
+                        gradeList.value = response.body()
+                        Log.i("xxx-res", gradeList.value.toString())
                     } else {
                         Log.i("xxx-muvm", response.message())
                     }
@@ -42,15 +40,15 @@ class FilterViewModel(val repository: DateDeliveryRepository) : ViewModel() {
             }
         }
     }
-    fun getDepartments() {
+    fun getRatings() {
         viewModelScope.launch {
             viewModelScope.launch {
                 try {
-                    val response = repository.getDepartments()
+                    val response = repository.getRatings()
                     if (response.isSuccessful) {
                         // userList.value = response.body()?.data
-                        departmentList.value = response.body()
-                        Log.i("xxx-res", departmentList.value.toString())
+                        ratings.value = response.body()
+                        Log.i("xxx-res", ratings.value.toString())
                     } else {
                         Log.i("xxx-muvm", response.message())
                     }

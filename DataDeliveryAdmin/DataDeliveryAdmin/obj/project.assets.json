@@ -1771,11 +1771,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\III.ev\\DataDeliveryAdmin\\DataDeliveryAdmin\\DataDeliveryAdmin.csproj",
+      "projectUniqueName": "D:\\III.ev\\DataDelivery\\DataDeliveryAdmin\\DataDeliveryAdmin\\DataDeliveryAdmin.csproj",
       "projectName": "DataDeliveryAdmin",
-      "projectPath": "D:\\III.ev\\DataDeliveryAdmin\\DataDeliveryAdmin\\DataDeliveryAdmin.csproj",
+      "projectPath": "D:\\III.ev\\DataDelivery\\DataDeliveryAdmin\\DataDeliveryAdmin\\DataDeliveryAdmin.csproj",
       "packagesPath": "C:\\Users\\lehel\\.nuget\\packages\\",
-      "outputPath": "D:\\III.ev\\DataDeliveryAdmin\\DataDeliveryAdmin\\obj\\",
+      "outputPath": "D:\\III.ev\\DataDelivery\\DataDeliveryAdmin\\DataDeliveryAdmin\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

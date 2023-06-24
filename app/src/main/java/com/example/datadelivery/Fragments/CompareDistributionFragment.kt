@@ -9,7 +9,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import com.example.datadelivery.Data_G
 import com.example.datadelivery.R
-import com.example.datadelivery.ViewModels.SharedChartsViewModel
+import com.example.datadelivery.ViewModel.SharedChartsViewModel
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet

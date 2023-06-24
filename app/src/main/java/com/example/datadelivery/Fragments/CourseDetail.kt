@@ -12,8 +12,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.datadelivery.*
 import com.example.datadelivery.API.DateDeliveryRepository
-import com.example.datadelivery.ViewModels.SharedChartsViewModel
-import com.example.datadelivery.ViewModels.SharedUserViewModel
+import com.example.datadelivery.ViewModel.SharedChartsViewModel
+import com.example.datadelivery.ViewModel.SharedUserViewModel
 import com.example.datadelivery.databinding.FragmentCourseDetailBinding
 
 

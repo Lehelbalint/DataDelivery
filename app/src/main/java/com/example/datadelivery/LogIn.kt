@@ -10,7 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.datadelivery.API.DateDeliveryRepository
-import com.example.datadelivery.ViewModels.SharedUserViewModel
+import com.example.datadelivery.ViewModel.SharedUserViewModel
 import com.example.datadelivery.databinding.FragmentLogInBinding
 
 class LogIn : Fragment() {

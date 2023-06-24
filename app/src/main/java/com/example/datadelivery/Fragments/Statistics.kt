@@ -11,10 +11,10 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.datadelivery.API.DateDeliveryRepository
 import com.example.datadelivery.Data_G
-import com.example.datadelivery.Models.Data
+import com.example.datadelivery.Model.Data
 import com.example.datadelivery.NotificationViewModel
 import com.example.datadelivery.NotificationViewModelFactory
-import com.example.datadelivery.ViewModels.SharedChartsViewModel
+import com.example.datadelivery.ViewModel.SharedChartsViewModel
 import com.example.datadelivery.databinding.FragmentStatisticsBinding
 
 class Statistics : Fragment() {

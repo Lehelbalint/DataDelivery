@@ -1,14 +1,12 @@
 package com.example.datadelivery.API
 
-import com.example.datadelivery.Student
 import retrofit2.Response
-import com.example.datadelivery.API.RetrofitInstance
 import com.example.datadelivery.Course
 import com.example.datadelivery.Grade
-import com.example.datadelivery.Models.AddRatingRequest
-import com.example.datadelivery.Models.AnswerMessage
-import com.example.datadelivery.Models.DepartmentClass
-import com.example.datadelivery.Models.Rating
+import com.example.datadelivery.Model.AddRatingRequest
+import com.example.datadelivery.Model.AnswerMessage
+import com.example.datadelivery.Model.DepartmentClass
+import com.example.datadelivery.Model.Rating
 import com.example.datadelivery.StudentData
 
 
