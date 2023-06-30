@@ -35,7 +35,7 @@ class NotificationDetail : Fragment() {
         binding.grade.text=currentGrade.attributes.grade.toString()
         binding.date.text = currentGrade.attributes.date
         binding.teacherName.text = currentGrade.attributes.teacher.data.attributes.name
-        if (currentGrade.attributes.note !="")
+        if (currentGrade.attributes.note !="-")
         {
             binding.note.text = currentGrade.attributes.note
         }

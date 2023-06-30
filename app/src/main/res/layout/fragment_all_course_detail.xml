@@ -4,8 +4,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0b6c43"
+    android:background="#E5E5E5"
     tools:context=".Fragments.AllCourseDetail">
+
+    <RatingBar
+        android:id="@+id/teacher_rating"
+        android:layout_width="240dp"
+        android:layout_height="42dp"
+        android:numStars="5"
+        android:rating="3"
+        android:scaleX=".4"
+        android:scaleY=".4"
+        android:stepSize="1"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp"
+        app:layout_constraintStart_toEndOf="@+id/interestLevel4"
+        app:layout_constraintTop_toTopOf="@+id/interestLevel4"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/interestLevel4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/acme"
+        android:text="Teacher Rating"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/interestLevel3"
+        app:layout_constraintTop_toBottomOf="@+id/interestLevel3"
+        tools:ignore="MissingConstraints" />
+
+    <RatingBar
+        android:id="@+id/friendly_teacher"
+        android:layout_width="240dp"
+        android:layout_height="42dp"
+        android:numStars="5"
+        android:rating="3"
+        android:scaleX=".4"
+        android:scaleY=".4"
+        android:stepSize="1"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp"
+        app:layout_constraintStart_toEndOf="@+id/interestLevel2"
+        app:layout_constraintTop_toTopOf="@+id/interestLevel2"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/interestLevel3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/acme"
+        android:text="Rating system"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/interestLevel"
+        app:layout_constraintTop_toBottomOf="@+id/interestLevel2"
+        tools:ignore="MissingConstraints" />
+
+    <RatingBar
+        android:id="@+id/rating_system"
+        android:layout_width="240dp"
+        android:layout_height="42dp"
+        android:numStars="5"
+        android:rating="3"
+        android:scaleX=".4"
+        android:scaleY=".4"
+        android:stepSize="1"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp"
+        app:layout_constraintStart_toEndOf="@+id/interestLevel3"
+        app:layout_constraintTop_toTopOf="@+id/interestLevel3"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/interestLevel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/acme"
+        android:text="Teacher friendly level"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/interestLevel"
+        app:layout_constraintTop_toBottomOf="@+id/interestLevel"
+        tools:ignore="MissingConstraints" />
 
     <RatingBar
         android:id="@+id/difficultyLevel"
@@ -22,7 +109,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView10" />
 
     <RatingBar
-        android:id="@+id/courseRating"
+        android:id="@+id/course_rating"
         android:layout_width="240dp"
         android:layout_height="42dp"
         android:layout_marginStart="3dp"
@@ -41,10 +128,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/acme"
         android:text="Course Name"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +146,7 @@
 
         android:text="Average:"
         android:fontFamily="@font/acme"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/courseName"
@@ -72,7 +159,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/acme"
         android:text="8,55"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView2"
@@ -85,7 +172,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/acme"
         android:text="Median"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView2"
@@ -98,7 +185,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/acme"
         android:text="8"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView5"
@@ -108,40 +195,39 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/acme"
         android:text="Course Rating:"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/interestLevel4"
+        app:layout_constraintTop_toBottomOf="@+id/interestLevel4" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/acme"
+        android:text="Pass Rate:"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/acme"
-        android:text="Pass Rate:"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <TextView
         android:id="@+id/passRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:fontFamily="@font/acme"
         android:text="50%"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toTopOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/textView10"
@@ -149,12 +235,72 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/acme"
-        android:text="Difficulty Level:"
-        android:textColor="#FFFFFF"
+        android:text="Difficulty level:"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#0b6c43"
+            android:minHeight="?attr/actionBarSize">
+
+
+            <TextView
+                android:id="@+id/textGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="#0b6c43"
+                android:fontFamily="@font/acme"
+                android:gravity="center_vertical"
+                android:text="Course Detail:"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/interestLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/acme"
+        android:text="Interest level"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        tools:ignore="MissingConstraints" />
+
+    <RatingBar
+        android:id="@+id/interest_rate"
+        android:layout_width="240dp"
+        android:layout_height="42dp"
+        android:numStars="5"
+        android:rating="3"
+        android:scaleX=".4"
+        android:scaleY=".4"
+        android:stepSize="1"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp"
+        app:layout_constraintStart_toEndOf="@+id/interestLevel"
+        app:layout_constraintTop_toTopOf="@+id/interestLevel"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

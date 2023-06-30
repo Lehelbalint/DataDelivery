@@ -64,23 +64,46 @@ class AllCourseDetail : Fragment() {
             {
                 val currentCourseRatings =
                     notificationViewModel.ratings.value?.data?.filter { it -> it.attributes.course.data.attributes.name == currentCourse.attributes.name}
-                    binding.courseRating.rating = calculateCourseRating(currentCourseRatings).toFloat()
-                    binding.difficultyLevel.rating = calculateCourseLevel(currentCourseRatings).toFloat()
+                if(currentCourseRatings != null)
+                {
+                    binding.courseRating.rating = calculateAverage(currentCourseRatings,"final_course_rate").toFloat()
+                    binding.difficultyLevel.rating= calculateAverage(currentCourseRatings,"course_level").toFloat()
+                    binding.ratingSystem.rating = calculateAverage(currentCourseRatings,"fair_pointing_rate").toFloat()
+                    binding.teacherRating.rating = calculateAverage(currentCourseRatings,"teacher_rate").toFloat()
+                    binding.friendlyTeacher.rating = calculateAverage(currentCourseRatings,"friendly_teacher_rate" ).toFloat()
+                    binding.interestRate.rating =calculateAverage(currentCourseRatings,"interest_rate" ).toFloat()
+                }
             }
         }
 
 
     }
 
-    private fun calculateCourseLevel(currentCourseRatings: List<Data>?): Double {
-        val courseLevelSum = currentCourseRatings?.sumBy { it.attributes.course_level }
-        val count = currentCourseRatings?.size
-        return if (courseLevelSum != null && count != null)
-            (courseLevelSum.toDouble() / count.toDouble())
-        else
-            0.0
-    }
+    fun calculateAverage(dataList: List<Data>, field: String): Double {
+        var sum = 0
+        var count = 0
 
+        dataList.forEach { data ->
+            val fieldValue = when (field) {
+                "interest_rate" -> data.attributes.interest_rate
+                "relevance_rate" -> data.attributes.relevance_rate
+                "friendly_teacher_rate" -> data.attributes.friendly_teacher_rate
+                "fair_pointing_rate" -> data.attributes.fair_pointing_rate
+                "material_availability_rate" -> data.attributes.material_availability_rate
+                "timeschedule_rate" -> data.attributes.timeschedule_rate
+                "flexibility_rate" -> data.attributes.flexibility_rate
+                "course_level" -> data.attributes.course_level
+                "teacher_rate" -> data.attributes.teacher_rate
+                "final_course_rate" -> data.attributes.final_course_rate
+                else -> throw IllegalArgumentException("Invalid field: $field")
+            }
+
+            sum += fieldValue
+            count++
+        }
+
+        return if (count > 0) sum.toDouble() / count else 0.0
+    }
     private fun calculateFinalGradeAverage(grades: List<Data_G>?): Double {
             val finalGrades = grades
                 ?.filter { it.attributes.final }
