@@ -3,22 +3,22 @@
 }
 
 
-<h1>Edit Grade</h1>
+<h1>Jegy modósitása</h1>
 <form  asp-action="Edit" class="mt-5">
     <div asp-asp-validation-summary="ModeOnly" class="text-danger"></div>
     <div class="mb-3">
-        <label   class="form-label">Grade:</label>
+        <label   class="form-label">Jegy:</label>
         <input type="number"  required asp-for="Data.Attributes.Grade" class="form-control">
     </div>
     <div class="mb-3">
-        <label class="form-label">Percentage:</label>
+        <label class="form-label">Százalék:</label>
         <input type="number" required asp-for="Data.Attributes.Percantage"  class="form-control" >
     </div>
     <div class="mb-3">
-        <label class="form-label">Date:</label>
+        <label class="form-label">Dátum:</label>
         <input type="date" required asp-for="Data.Attributes.Date"  class="form-control">
     </div>
     <input type="hidden" asp-for="Data.Id" />
     <input type="hidden" asp-for="Data.Attributes.Final" />
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Modósitás</button>
 </form>

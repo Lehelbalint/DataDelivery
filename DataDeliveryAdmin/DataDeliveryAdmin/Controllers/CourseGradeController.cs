@@ -33,7 +33,7 @@ namespace DataDeliveryAdmin.Controllers
             {
                 string data = await response.Content.ReadAsStringAsync();
                 list = JsonConvert.DeserializeObject<CourseViewModel>(data);
-               
+
                 List<CourseData> selectedCourses = new List<CourseData>();
 
                 foreach (var courseData in list.data)
@@ -56,8 +56,8 @@ namespace DataDeliveryAdmin.Controllers
                 return View(selectedViewModel);
             }
             return View(list);
-    
-   
+
+
         }
 
         [HttpGet]
@@ -88,7 +88,7 @@ namespace DataDeliveryAdmin.Controllers
                         }
                     }
                 }
-                StudentViewModel selectedViewModel = new  StudentViewModel
+                StudentViewModel selectedViewModel = new StudentViewModel
                 {
                     data = selectedStudents
                 };
@@ -98,9 +98,9 @@ namespace DataDeliveryAdmin.Controllers
             return View(list);
         }
 
-		[HttpGet]
-		public async Task<IActionResult> AddGrade(int courseId,int studentId)
-		{
+        [HttpGet]
+        public async Task<IActionResult> AddGrade(int courseId, int studentId)
+        {
             if (!User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Login", "Account");
@@ -134,7 +134,7 @@ namespace DataDeliveryAdmin.Controllers
                 Student targetSudent = list2.data.FirstOrDefault(s => s.id == studentId);
                 if (targetSudent != null)
                 {
-                    model.DepartmentId= targetSudent.attributes.department.data.id;
+                    model.DepartmentId = targetSudent.attributes.department.data.id;
                 }
 
             }
@@ -146,7 +146,7 @@ namespace DataDeliveryAdmin.Controllers
             {
                 string data = await response3.Content.ReadAsStringAsync();
                 list3 = JsonConvert.DeserializeObject<GradeViewModel>(data);
-                List<Data_G> targetGrades = list3.Data.FindAll(s => s.Attributes.Student.Data.Id== studentId && s.Attributes.Course.Data.Id==courseId);
+                List<Data_G> targetGrades = list3.Data.FindAll(s => s.Attributes.Student.Data.Id == studentId && s.Attributes.Course.Data.Id == courseId);
                 if (targetGrades != null)
                 {
                     model.grades = targetGrades;
@@ -154,7 +154,7 @@ namespace DataDeliveryAdmin.Controllers
             }
 
             return View(model);
-		}
+        }
 
         [HttpPost]
         public IActionResult AddGrade(IdGradeViewModel model)
@@ -164,7 +164,7 @@ namespace DataDeliveryAdmin.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
-     
+
             PostGradeViewModel item = new PostGradeViewModel();
 
             // Adatok feltöltése a GradeData_P objektumba
@@ -214,7 +214,7 @@ namespace DataDeliveryAdmin.Controllers
                     ViewBag.Message = "Beszuras sikertelen";
                 }
             }
-             catch (Exception ex)
+            catch (Exception ex)
             {
                 return View();
             }
@@ -222,5 +222,139 @@ namespace DataDeliveryAdmin.Controllers
             return View();
         }
 
+        [HttpGet]
+        public async Task<IActionResult> AddFinal(int courseId, int studentId)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            IdGradeViewModel model = new IdGradeViewModel()
+            {
+                CourseId = courseId,
+                StudentId = studentId,
+            };
+            TeacherViewModel list = new TeacherViewModel();
+            HttpResponseMessage response = await _client.GetAsync("teachers");
+
+            if (response.IsSuccessStatusCode)
+            {
+                string data = await response.Content.ReadAsStringAsync();
+                list = JsonConvert.DeserializeObject<TeacherViewModel>(data);
+                Teacher targetTeacher = list.Data.FirstOrDefault(s => s.Attributes.email == User.Identity.Name);
+                if (targetTeacher != null)
+                {
+                    model.TeacherId = targetTeacher.Id;
+                }
+
+            }
+            StudentViewModel list2 = new StudentViewModel();
+            HttpResponseMessage response2 = await _client.GetAsync("students?populate=*");
+
+            if (response2.IsSuccessStatusCode)
+            {
+                string data = await response2.Content.ReadAsStringAsync();
+                list2 = JsonConvert.DeserializeObject<StudentViewModel>(data);
+                Student targetSudent = list2.data.FirstOrDefault(s => s.id == studentId);
+                if (targetSudent != null)
+                {
+                    model.DepartmentId = targetSudent.attributes.department.data.id;
+                }
+
+            }
+
+            GradeViewModel list3 = new GradeViewModel();
+            HttpResponseMessage response3 = await _client.GetAsync("grades?populate=*");
+
+            if (response3.IsSuccessStatusCode)
+            {
+                string data = await response3.Content.ReadAsStringAsync();
+                list3 = JsonConvert.DeserializeObject<GradeViewModel>(data);
+                List<Data_G> targetGrades = list3.Data.FindAll(s => s.Attributes.Student.Data.Id == studentId && s.Attributes.Course.Data.Id == courseId);
+                if (targetGrades != null)
+                {
+                    model.grades = targetGrades;
+                }
+                if (targetGrades.FirstOrDefault(grade => grade.Attributes.Final == true) != null)
+                {
+                    model.finalGrade = -1;
+
+                }
+                else if (targetGrades.Sum(grade => grade.Attributes.Percantage) != 100)
+                {
+                    model.finalGrade = 0;
+                }
+                else
+                {
+                    model.finalGrade = targetGrades.Sum(grade => (float)grade.Attributes.Grade * ((float)grade.Attributes.Percantage / 100));
+                }
+            }
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public IActionResult AddFinal(IdGradeViewModel model)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+
+            PostGradeViewModel item = new PostGradeViewModel();
+
+            // Adatok feltöltése a GradeData_P objektumba
+            item.data = new GradeData_P
+            {
+                grade = model.Grade,
+                percantage = 100,
+                date = DateTime.Today.ToString("yyyy-MM-dd"),
+                final = true,
+                course = new CourseConnect
+                {
+                    connect = new List<int> { model.CourseId }
+                },
+                student = new StudentConnect
+                {
+                    connect = new List<int> { model.StudentId }
+                },
+                teacher = new TeacherConnect
+                {
+                    connect = new List<int> { model.TeacherId }
+                },
+                department = new DepartmentConnect
+                {
+                    connect = new List<int> { model.DepartmentId }
+                }
+
+            };
+          
+            try
+            {
+                string data = JsonConvert.SerializeObject(item);
+                StringContent content = new StringContent(data, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = _client.PostAsync(_client.BaseAddress + "grades", content).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    ViewBag.Message = "Sikeres beszuras!!";
+                    return RedirectToAction("Index");
+                    
+                }
+                else
+                {
+                    ViewBag.Message = "Beszuras sikertelen";
+                }
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
+
+            return View();
+        }
     }
+
+
 }

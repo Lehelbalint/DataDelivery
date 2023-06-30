@@ -1,39 +1,52 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        body {
-            background-color: #0b6c43;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
+﻿<style>
+    .div-link {
+        text-decoration: none;
+    }
 
-        #container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    body {
+        background-color: #0b6c43;
+        color: white;
+        font-family: Arial, sans-serif;
+    }
 
-        #div1, #div2 {
-            background-color: #06d48f;
-            color: white;
-            padding: 20px;
-            margin: 10px;
-            cursor: pointer;
+    #container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    #div1, #div2 {
+        background-color: #06d48f;
+        color: white;
+        padding: 20px;
+        margin: 10px;
+        cursor: pointer;
+        width: 400px;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+        #div1:hover, #div2:hover {
+            background-color: #00ffcc;
         }
-    </style>
-</head>
-<body>
-    <div id="container">
-        <div id="div1" onclick="window.location.href = 'link1.html';">
-            <h2>Div 1</h2>
-            <p>Ez a Div 1 tartalma.</p>
+</style>
+
+<div id="container">
+    <a href="/Grade/Index" class="div-link">
+        <div id="div1">
+            <h2>Jegyek</h2>
         </div>
-        <div id="div2" onclick="window.location.href = 'link2.html';">
-            <h2>Div 2</h2>
-            <p>Ez a Div 2 tartalma.</p>
+    </a>
+
+    <a href="/CourseGrade/Index" class="div-link">
+        <div id="div2">
+            <h2>Tanolyamok és Diákok</h2>
         </div>
-    </div>
-</body>
-</html>
+    </a>
+</div>

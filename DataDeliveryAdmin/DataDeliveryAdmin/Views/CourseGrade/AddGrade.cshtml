@@ -2,19 +2,19 @@
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<h1>Add Grade</h1>
+<h1>Jegy hozzáadás</h1>
 <form asp-action="AddGrade" class="mt-5">
     <div asp-asp-validation-summary="ModeOnly" class="text-danger"></div>
     <div class="mb-3">
-        <label class="form-label">Grade:</label>
+        <label class="form-label">Jegy:</label>
         <input type="number" required asp-for="Grade" class="form-control">
     </div>
     <div class="mb-3">
-        <label class="form-label">Percentage:</label>
+        <label class="form-label">Százalék:</label>
         <input type="number" required asp-for="Percentage" class="form-control">
     </div>
     <div class="mb-3">
-        <label class="form-label">Date:</label>
+        <label class="form-label">Dátum:</label>
         <input type="date" required asp-for="Date" class="form-control">
     </div>
     <input type="hidden" asp-for="CourseId" />
@@ -22,7 +22,7 @@
     <input type="hidden" asp-for="TeacherId" />
     <input type="hidden" asp-for="DepartmentId" />
     <input type= "hidden" asp-for="grades" />
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Küldés</button>
 </form>
 
 

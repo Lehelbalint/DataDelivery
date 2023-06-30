@@ -1,0 +1,63 @@
+﻿@model DataDeliveryAdmin.Models.IdGradeViewModel
+
+<h2>Diák jegyei</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Jegy</th>
+            <th>Százalék</th>
+            <th>Dátum</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var jegy in Model.grades)
+        {
+            <tr>
+                <td>@jegy.Attributes.Grade</td>
+                <td>@jegy.Attributes.Percantage</td>
+                <td>@jegy.Attributes.Date</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Final grade:</h2>
+
+@if (Model.finalGrade == -1)
+{
+    <p>Az adott diák már rendelkezik végső jeggyel.</p>
+}
+else if (Model.finalGrade == 0)
+{
+    <p>Kevés a jegy a végső jegy számitásához</p>
+}
+else
+{
+    <p>A diák végső jegye: @Model.finalGrade</p>
+
+    <form asp-action="AddFinal" class="mt-5">
+        <div asp-asp-validation-summary="ModeOnly" class="text-danger"></div>
+        <div class="mb-3">
+            <label class="form-label">Tanár által adott végső jegy:</label>
+            <input type="number" required asp-for="Grade" class="form-control">
+        </div>
+        <input type="hidden" asp-for="CourseId" />
+        <input type="hidden" asp-for="StudentId" />
+        <input type="hidden" asp-for="TeacherId" />
+        <input type="hidden" asp-for="DepartmentId" />
+        <button type="submit" class="btn btn-primary">Küldés</button>
+    </form>
+
+}
+
+
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewBag.Message");
+        };
+    </script>
+}

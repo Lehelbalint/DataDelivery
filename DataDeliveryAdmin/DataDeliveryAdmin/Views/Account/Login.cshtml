@@ -18,15 +18,26 @@
         width: 50%;
         margin: 0 auto;
     }
+        .form-container button
+        {
+            background-color: #06d48f;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            margin-bottom: 80px;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+            height: 35px;
+        }
 
         .form-container label {
             margin-bottom: 10px;
         }
 
         .form-container input[type="text"],
-        .form-container input[type="password"],
-        .form-container button {
-            background-color: #06d48f;
+        .form-container input[type="password"]
+       {
             color: white;
             border: none;
             padding: 8px 12px;
@@ -70,7 +81,7 @@
         <div>
             <label asp-for="Password">Jelszó:</label>
             <br />
-            <input asp-for="Password" type="password" style="width: 100% ;height: auto; border-radius: 4px; padding: 8px 12px; box-sizing: border-box;" />
+            <input asp-for="Password" type="password" style="width: 100% ;height: auto; border-radius: 4px; padding: 8px 12px; box-sizing: border-box; color" />
             <span asp-validation-for="Password" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-primary">Bejelentkezés</button>

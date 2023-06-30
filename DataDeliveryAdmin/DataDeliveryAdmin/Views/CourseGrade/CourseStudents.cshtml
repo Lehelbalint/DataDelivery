@@ -5,10 +5,11 @@
 <table class="table" id="table">
 	<thead>
 		<tr>
-			<th>Neptun Id</th>
-			<th>Name</th>
+			<th>Neptun kód</th>
+			<th>Név</th>
 			<th>Email</th>
-			<th>Department</th>
+			<th>Szak</th>
+			<th></th>
 			<th></th>
 		</tr>
 	</thead>
@@ -21,13 +22,23 @@
 				<td>@student.attributes.email</td>
 				<td>@student.attributes.department.data.attributes.department_name</td>
 				<td>
-					<a href="#" onclick="redirectToNewPage(@Model.Courseid, @student.id); return false;">AddGrade</a>
-
+					<a href="#" onclick="redirectToNewPage(@Model.Courseid, @student.id); return false;">Jegy hozzáadása</a>
+				<td>
+						<button onclick="redirectToNewPage2(@Model.Courseid, @student.id); return false;">Végső jegy számitás</button>
+				</td>
 					
 			</tr>
 		}
 
+			
 
+
+<script>
+	function redirectToNewPage2(courseId, studentId, teacherId, departmentId) {
+	var newUrl = "/CourseGrade/AddFinal?courseId=" + courseId + "&studentId=" + studentId + "&teacherId=" + teacherId + "&departmentId=" + departmentId;
+			window.location.replace(newUrl);
+				}
+</script>
 
 	</tbody>
 </table>

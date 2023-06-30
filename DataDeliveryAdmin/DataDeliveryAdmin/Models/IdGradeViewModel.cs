@@ -11,5 +11,7 @@
 		public DateTime Date { get; set; }
 
 		public List<Data_G> grades { get; set; }
+
+		public float finalGrade { get; set; }
 	}
 }

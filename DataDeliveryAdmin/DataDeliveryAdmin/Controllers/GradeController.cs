@@ -29,6 +29,7 @@ namespace DataDeliveryAdmin.Controllers
             }
             GradeViewModel list = new GradeViewModel();
             GradeViewModel filteredList = new GradeViewModel(); 
+
             HttpResponseMessage response = await _client.GetAsync("grades?populate=*");
 
             if (response.IsSuccessStatusCode)
@@ -39,19 +40,16 @@ namespace DataDeliveryAdmin.Controllers
                 
                 filteredList.Data = list.Data
                 .Where(grade => grade.Attributes.Teacher.Data.Attributes.Email == loggedInTeacherEmail).ToList();
-                if (string.IsNullOrEmpty(clientName))
+                if (!string.IsNullOrEmpty(clientName))
                 { 
-                    return View(filteredList); 
-                }
-                else
-                {
                     filteredList.Data = filteredList.Data
                         .Where(grade => grade.Attributes.Student.Data.Attributes.Neptun_Id == clientName || 
                         grade.Attributes.Course.Data.Attributes.Name==clientName).ToList();
-                    return View(filteredList);
                 }
+                filteredList.Data = filteredList.Data.OrderByDescending(jegy => jegy.Attributes.CreatedAt).ToList();
+                return View(filteredList);
 
-			}
+            }
             return View(list);
         }
         [HttpGet]
