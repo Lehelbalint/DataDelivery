@@ -1,7 +1,7 @@
 ﻿@model DataDeliveryAdmin.Models.IdGradeViewModel
-}
 
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <h1>Add Grade</h1>
 <form asp-action="AddGrade" class="mt-5">
     <div asp-asp-validation-summary="ModeOnly" class="text-danger"></div>
@@ -20,5 +20,17 @@
     <input type="hidden" asp-for="CourseId" />
     <input type="hidden" asp-for="StudentId" />
     <input type="hidden" asp-for="TeacherId" />
+    <input type="hidden" asp-for="DepartmentId" />
+    <input type= "hidden" asp-for="grades" />
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewBag.Message");
+        };
+    </script>
+}

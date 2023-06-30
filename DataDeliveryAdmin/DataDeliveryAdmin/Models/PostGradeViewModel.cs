@@ -13,8 +13,14 @@
         public CourseConnect course { get; set; }
         public StudentConnect student { get; set; }
         public TeacherConnect teacher { get; set; }
+
+        public DepartmentConnect department { get; set; }   
     }
 
+    public class DepartmentConnect
+    {
+        public List<int> connect { get; set; }
+    }
     public class CourseConnect
     {
         public List<int> connect { get; set; }

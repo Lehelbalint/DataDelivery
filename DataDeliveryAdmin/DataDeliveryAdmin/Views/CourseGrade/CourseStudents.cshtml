@@ -19,7 +19,7 @@
 				<td>@student.attributes.neptun_id</td>
 				<td>@student.attributes.name</td>
 				<td>@student.attributes.email</td>
-				<td>@student.attributes.department</td>
+				<td>@student.attributes.department.data.attributes.department_name</td>
 				<td>
 					<a href="#" onclick="redirectToNewPage(@Model.Courseid, @student.id); return false;">AddGrade</a>
 

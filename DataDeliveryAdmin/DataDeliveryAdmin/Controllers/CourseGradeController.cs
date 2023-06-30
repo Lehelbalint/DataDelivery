@@ -1,13 +1,15 @@
 ﻿using DataDeliveryAdmin.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Text;
+using System.Xml.Linq;
 
 namespace DataDeliveryAdmin.Controllers
 {
     public class CourseGradeController : Controller
     {
-        Uri baseAdress = new Uri("http://192.168.132.227:1337/api/");
+        Uri baseAdress = new Uri("http://localhost:1337/api/");
 
         private readonly HttpClient _client;
 
@@ -86,8 +88,6 @@ namespace DataDeliveryAdmin.Controllers
                         }
                     }
                 }
-
-                // Új CourseViewModel példány létrehozása a kiválasztott kurzusokkal
                 StudentViewModel selectedViewModel = new  StudentViewModel
                 {
                     data = selectedStudents
@@ -124,6 +124,35 @@ namespace DataDeliveryAdmin.Controllers
                 }
 
             }
+            StudentViewModel list2 = new StudentViewModel();
+            HttpResponseMessage response2 = await _client.GetAsync("students?populate=*");
+
+            if (response2.IsSuccessStatusCode)
+            {
+                string data = await response2.Content.ReadAsStringAsync();
+                list2 = JsonConvert.DeserializeObject<StudentViewModel>(data);
+                Student targetSudent = list2.data.FirstOrDefault(s => s.id == studentId);
+                if (targetSudent != null)
+                {
+                    model.DepartmentId= targetSudent.attributes.department.data.id;
+                }
+
+            }
+
+            GradeViewModel list3 = new GradeViewModel();
+            HttpResponseMessage response3 = await _client.GetAsync("grades?populate=*");
+
+            if (response3.IsSuccessStatusCode)
+            {
+                string data = await response3.Content.ReadAsStringAsync();
+                list3 = JsonConvert.DeserializeObject<GradeViewModel>(data);
+                List<Data_G> targetGrades = list3.Data.FindAll(s => s.Attributes.Student.Data.Id== studentId && s.Attributes.Course.Data.Id==courseId);
+                if (targetGrades != null)
+                {
+                    model.grades = targetGrades;
+                }
+            }
+
             return View(model);
 		}
 
@@ -135,6 +164,7 @@ namespace DataDeliveryAdmin.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
+     
             PostGradeViewModel item = new PostGradeViewModel();
 
             // Adatok feltöltése a GradeData_P objektumba
@@ -154,6 +184,10 @@ namespace DataDeliveryAdmin.Controllers
                 teacher = new TeacherConnect
                 {
                     connect = new List<int> { model.TeacherId }
+                },
+                department = new DepartmentConnect
+                {
+                    connect = new List<int> { model.DepartmentId }
                 }
             };
             if (model.Percentage == 100)
@@ -169,13 +203,18 @@ namespace DataDeliveryAdmin.Controllers
                 string data = JsonConvert.SerializeObject(item);
                 StringContent content = new StringContent(data, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = _client.PostAsync(_client.BaseAddress + "grades", content).Result;
-
                 if (response.IsSuccessStatusCode)
                 {
-                    return RedirectToAction("Index");
+                    ViewBag.Message = "Sikeres beszuras!!";
+                    //return RedirectToAction("Index");
+                    return View();
+                }
+                else
+                {
+                    ViewBag.Message = "Beszuras sikertelen";
                 }
             }
-            catch (Exception ex)
+             catch (Exception ex)
             {
                 return View();
             }

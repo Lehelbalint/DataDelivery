@@ -1,8 +1,39 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #0b6c43;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #div1, #div2 {
+            background-color: #06d48f;
+            color: white;
+            padding: 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="div1" onclick="window.location.href = 'link1.html';">
+            <h2>Div 1</h2>
+            <p>Ez a Div 1 tartalma.</p>
+        </div>
+        <div id="div2" onclick="window.location.href = 'link2.html';">
+            <h2>Div 2</h2>
+            <p>Ez a Div 2 tartalma.</p>
+        </div>
+    </div>
+</body>
+</html>

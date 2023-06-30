@@ -40,7 +40,7 @@
     public class Department
     {
         public int id { get; set; }
-        public DepartmentAttributes attributes { get; set; }
+        public DepartmentAttributes_S attributes { get; set; }
     }
     public class DepartmentAttributes_S
     {

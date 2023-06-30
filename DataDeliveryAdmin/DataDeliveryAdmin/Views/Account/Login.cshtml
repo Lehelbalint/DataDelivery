@@ -1,5 +1,57 @@
 ﻿@model DataDeliveryAdmin.Models.LoginViewModel
 
+<style>
+    h2
+    {
+        text-align: center;
+    }
+
+    body {
+        background-color: #0b6c43;
+        color: white;
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        margin: 0 auto;
+    }
+
+        .form-container label {
+            margin-bottom: 10px;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="password"],
+        .form-container button {
+            background-color: #06d48f;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            margin-bottom: 80px;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+            height: 35px;
+        }
+
+        .form-container button {
+            cursor: pointer;
+        }
+
+            .form-container button:hover {
+                background-color: #057b5b;
+            }
+
+        .form-container .text-danger {
+            color: red;
+        }
+
+
+</style>
+
 <h2>Bejelentkezés</h2>
 
 @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
@@ -7,26 +59,32 @@
     <p class="text-danger">@ViewBag.ErrorMessage</p>
 }
 
-<form asp-action="Login" method="post">
-    <div class="form-group">
-        <label asp-for="Email">Email:</label>
-        <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Password">Jelszó:</label>
-        <input asp-for="Password" type="password" class="form-control" />
-        <span asp-validation-for="Password" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Bejelentkezés</button>
-</form>
+<div class="form-container">
+    <form asp-action="Login" method="post" style="width: 100%">
+        <div>
+            <label asp-for="Email">Email:</label>
+            <br />
+            <input asp-for="Email" style="width: 100%; height= auto; border-radius: 4px; padding: 8px 12px; box-sizing: border-box;" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Password">Jelszó:</label>
+            <br />
+            <input asp-for="Password" type="password" style="width: 100% ;height: auto; border-radius: 4px; padding: 8px 12px; box-sizing: border-box;" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Bejelentkezés</button>
+    </form>
+
+
+</div>
+
 @if (!ViewData.ModelState.IsValid)
 {
     <div class="alert alert-danger">
         @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
         {
             <span>@error.ErrorMessage</span>
-
             <br />
         }
     </div>

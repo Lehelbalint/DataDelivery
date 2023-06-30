@@ -72,7 +72,7 @@ namespace DataDeliveryAdmin.Controllers
                 var json = JsonConvert.SerializeObject(loginData);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                var response =client.PostAsync("http://192.168.132.227:1337/api/auth/local", content).Result;
+                var response =client.PostAsync("http://localhost:1337/api/auth/local", content).Result;
 
                 if (response.IsSuccessStatusCode)
                 {

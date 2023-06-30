@@ -10,7 +10,7 @@ namespace DataDeliveryAdmin.Controllers
 {
     public class DepartmentController : Controller
     {
-        Uri baseAdress = new Uri("http://192.168.100.8:1337/api/");
+        Uri baseAdress = new Uri("http://localhost:1337/api/");
 
         private readonly HttpClient _client;
 

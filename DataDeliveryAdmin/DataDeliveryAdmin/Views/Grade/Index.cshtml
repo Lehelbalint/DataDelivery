@@ -39,8 +39,20 @@
 				<td>@grade.Attributes.Student.Data.Attributes.Neptun_Id</td>
 				<td>
 					<a href="Edit/@grade.Id">Edit</a>
-					<a href="Delete/@grade.Id">Delete</a>
+					<button onclick="confirmDelete('@grade.Id')">Delete</button>
 			</tr>
 		}
 	</tbody>
 </table>
+
+@section Scripts {
+<script>
+	
+	function confirmDelete(itemId) {
+		if (confirm("Biztosan törölni szeretné?")) {
+			// Ha a felhasználó megerősítette a törlést, akkor átirányíthatjuk a törlési művelethez tartozó vezérlőhöz
+			window.location.href = '@Url.Action("Delete", "Grade")/' + itemId;
+		}
+	}
+</script>
+}

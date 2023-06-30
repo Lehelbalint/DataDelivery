@@ -10,7 +10,7 @@ namespace DataDeliveryAdmin.Controllers
 {
     public class GradeController : Controller
     {
-        Uri baseAdress = new Uri("http://192.168.132.227:1337/api/");
+        Uri baseAdress = new Uri("http://localhost:1337/api/");
 
         private readonly HttpClient _client;
 
