@@ -47,6 +47,10 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::department.department"
+    },
+    "note": {
+      "type": "text",
+      "default": "-"
     }
   }
 }

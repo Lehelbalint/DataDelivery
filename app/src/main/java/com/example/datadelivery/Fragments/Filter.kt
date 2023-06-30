@@ -1,5 +1,6 @@
 package com.example.datadelivery.Fragments
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,19 +11,33 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.datadelivery.API.DateDeliveryRepository
+import com.example.datadelivery.BottomNavigationListener
 import com.example.datadelivery.R
 import com.example.datadelivery.ViewModel.FilterViewModel
 import com.example.datadelivery.ViewModel.FilterViewModelFactory
 import com.example.datadelivery.ViewModel.SharedChartsViewModel
+import com.example.datadelivery.ViewModel.SharedUserViewModel
 import com.example.datadelivery.databinding.FragmentFilterBinding
 
 
 class Filter : Fragment() {
-
+    private var bottomNavigationListener: BottomNavigationListener? = null
     private var _binding: FragmentFilterBinding? = null
     private val binding get() = _binding!!
     private lateinit var filterViewModel: FilterViewModel
     val sharedChartsViewModel : SharedChartsViewModel  by activityViewModels()
+    val sharedUserViewModel : SharedUserViewModel by activityViewModels()
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is BottomNavigationListener) {
+            bottomNavigationListener = context
+        }
+    }
+    override fun onDetach() {
+        super.onDetach()
+        bottomNavigationListener = null
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +57,10 @@ class Filter : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        if(sharedUserViewModel.loggedIn== 0)
+        {
+            hideBottomNavigation()
+        }
 
         val yearOptions = listOf("All","2021", "2022", "2023")
         val gradeTypeOptions = listOf("All","Final", "Partial")
@@ -94,6 +112,9 @@ class Filter : Fragment() {
             sharedChartsViewModel.year = binding.spinnerYear.selectedItem.toString()
             findNavController().navigate(R.id.action_filter_to_secondFilter)
         }
+    }
+    private fun hideBottomNavigation() {
+        bottomNavigationListener?.hideBottomNavigation()
     }
 
 }

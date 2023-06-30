@@ -12,7 +12,7 @@
         android:id="@+id/logo_imageview"
         android:layout_width="374dp"
         android:layout_height="290dp"
-        android:src="@drawable/logo"
+        android:src="@drawable/white_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,7 +25,7 @@
         android:hint="Student Code"
         android:text="IGCWWY"
         android:fontFamily="@font/acme"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,7 @@
         android:fontFamily="@font/acme"
         android:inputType="textPassword"
         android:text="12345"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/student_code_edittext" />
@@ -52,7 +52,7 @@
         android:layout_marginTop="16dp"
         android:backgroundTint="#06d48f"
         android:fontFamily="@font/acme"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:text="Login"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,6 +67,7 @@
         android:fontFamily="@font/acme"
         android:text="Login as a guest"
         android:textSize="16sp"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />

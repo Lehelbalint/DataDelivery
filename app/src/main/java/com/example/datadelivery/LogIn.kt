@@ -29,7 +29,7 @@ class LogIn : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         _binding = FragmentLogInBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -58,6 +58,7 @@ class LogIn : Fragment() {
                 else if (Users != null) {
                     if (findStudent(Users.data,studentCode,password)) {
                         sharedViewModel.currentUser =  findStudentById(studentCode,Users.data)
+                        sharedViewModel.loggedIn = 1
                         // Log.i("xxx-pfm",sharedViewModel.currentUser.attributes.courses.data[0].attributes.name)
                         findNavController().navigate(R.id.notifications2)
                     }

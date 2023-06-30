@@ -18,7 +18,8 @@ data class Attributes_G(
     val course: Course_Grade,
     val student: Student_G,
     val teacher: Teacher_G,
-    val department: Department_G
+    val department: Department_G,
+    val note: String
 )
 
 data class Department_G(

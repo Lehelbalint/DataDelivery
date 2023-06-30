@@ -60,7 +60,7 @@ class CourseDetail : Fragment() {
                 if(final.isNotEmpty()) {
                     Log.i("xxx-try2", final.toString())
                     binding.finalGrade.text=final[0].attributes.grade.toString()
-                    val percentage = calculateGradePercentage(currentCourseGrades,final[0].attributes.grade)
+                    val percentage = String.format("%.2f", calculateGradePercentage(currentCourseGrades,final[0].attributes.grade))
                     binding.finalPercentage.text =
                         "Your final grade is better than $percentage% of other students "
 

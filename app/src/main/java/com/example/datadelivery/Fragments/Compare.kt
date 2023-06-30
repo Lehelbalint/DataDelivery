@@ -1,5 +1,6 @@
 package com.example.datadelivery.Fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,20 +10,33 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.datadelivery.API.DateDeliveryRepository
+import com.example.datadelivery.BottomNavigationListener
 import com.example.datadelivery.Data_G
 import com.example.datadelivery.Model.Data
 import com.example.datadelivery.NotificationViewModel
 import com.example.datadelivery.NotificationViewModelFactory
 import com.example.datadelivery.ViewModel.SharedChartsViewModel
+import com.example.datadelivery.ViewModel.SharedUserViewModel
 import com.example.datadelivery.databinding.FragmentCompareBinding
 
 class Compare : Fragment() {
-
+    private var bottomNavigationListener: BottomNavigationListener? = null
     private var _binding: FragmentCompareBinding? = null
     private val binding get() = _binding!!
     private lateinit var notificationViewModel: NotificationViewModel
     val sharedChartsViewModel : SharedChartsViewModel by activityViewModels()
+    val sharedUserViewModel : SharedUserViewModel by activityViewModels()
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is BottomNavigationListener) {
+            bottomNavigationListener = context
+        }
+    }
+    override fun onDetach() {
+        super.onDetach()
+        bottomNavigationListener = null
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val factory = NotificationViewModelFactory(DateDeliveryRepository())
@@ -41,7 +55,10 @@ class Compare : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        if(sharedUserViewModel.loggedIn== 0)
+        {
+            hideBottomNavigation()
+        }
         notificationViewModel.getGrades()
         notificationViewModel.gradeList.observe(viewLifecycleOwner)
         {
@@ -55,12 +72,12 @@ class Compare : Fragment() {
             }
             if (currentGradeList != null) {
                 Log.i("xxx-grades",currentGradeList.size.toString())
-                binding.avg.text=calculateGradeAverage(currentGradeList).toString()
+                binding.avg.text=String.format("%.2f", calculateGradeAverage(currentGradeList))
                 binding.median.text = calculateMedianGrade(currentGradeList).toString()
-                binding.passRate.text = calculatePassingRate(currentGradeList).toString()+"%"
-                binding.avg2.text=calculateGradeAverage(secondGradeList).toString()
+                binding.passRate.text = String.format("%.2f", calculatePassingRate(currentGradeList))+"%"
+                binding.avg2.text=String.format("%.2f", calculateGradeAverage(secondGradeList))
                 binding.median2.text = calculateMedianGrade(secondGradeList).toString()
-                binding.passRate2.text = calculatePassingRate(secondGradeList).toString()+"%"
+                binding.passRate2.text = String.format("%.2f", calculatePassingRate(currentGradeList))+"%"
             }
             else {
                 binding.avg.text = ""
@@ -201,6 +218,9 @@ class Compare : Fragment() {
             (courseLevelSum.toDouble() / count.toDouble())
         else
             0.0
+    }
+    private fun hideBottomNavigation() {
+        bottomNavigationListener?.hideBottomNavigation()
     }
 
 }

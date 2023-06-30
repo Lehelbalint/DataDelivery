@@ -25,6 +25,7 @@
 			<th>Dátum</th>
 			<th>Tanfolyam neve</th>
 			<th>Diák kódja</th>
+			<th>Diák neve</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -37,6 +38,7 @@
 				<td>@grade.Attributes.Date.ToString()</td>
 				<td>@grade.Attributes.Course.Data.Attributes.Name</td>
 				<td>@grade.Attributes.Student.Data.Attributes.Neptun_Id</td>
+				<td>@grade.Attributes.Student.Data.Attributes.Name</td>
 				<td>
 					<a href="Edit/@grade.Id">Modósitás</a>
 					<button onclick="confirmDelete('@grade.Id')">Törlés</button>

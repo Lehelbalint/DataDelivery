@@ -54,6 +54,7 @@ data class GradeAttributes(
     val createdAt: String,
     val updatedAt: String,
     val publishedAt: String,
+    val note: String?,
     val date: String?
 )
 

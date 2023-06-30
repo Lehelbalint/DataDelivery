@@ -6,6 +6,7 @@ import com.example.datadelivery.Student
 
 class SharedUserViewModel : ViewModel(){
     lateinit var currentUser : Student
+    var loggedIn =0
     
     var position = 0
     lateinit var courseList : Course

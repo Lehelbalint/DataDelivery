@@ -4,14 +4,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.example.datadelivery.API.DateDeliveryRepository
 import com.example.datadelivery.ViewModel.SharedUserViewModel
 import com.example.datadelivery.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), BottomNavigationListener {
     private lateinit var binding: ActivityMainBinding
     val sharedUserViewModel : SharedUserViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,9 +61,38 @@ class MainActivity : AppCompatActivity() {
                 R.id.statistics -> {
                     controller.navigate(R.id.filter)
                     true
-                }
-                else -> super.onOptionsItemSelected(it)
-            }
         }
+        R.id.Logout ->
+        {
+            showLogoutConfirmationDialog(controller)
+            false
+        }
+        else -> super.onOptionsItemSelected(it)
+    }
+}
 
-    }}
+}
+
+override fun hideBottomNavigation() {
+    val navView: BottomNavigationView = binding.navView
+    navView.visibility=View.GONE
+}
+private fun showLogoutConfirmationDialog(controller: NavController) {
+    val builder = AlertDialog.Builder(this)
+    builder.setTitle("Loging out")
+    builder.setMessage("Are you sure you want to log out?")
+    builder.setPositiveButton("Yes") { _, _ ->
+        sharedUserViewModel.loggedIn=0
+        controller.navigate(R.id.logIn)
+        }
+        builder.setNegativeButton("No", null)
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+}
+
+interface BottomNavigationListener {
+    fun hideBottomNavigation()
+}
+

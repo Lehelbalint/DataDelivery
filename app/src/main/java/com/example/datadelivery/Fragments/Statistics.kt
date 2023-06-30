@@ -1,6 +1,7 @@
 package com.example.datadelivery.Fragments
 
 import DistributionHistogram
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,20 +11,34 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.datadelivery.API.DateDeliveryRepository
+import com.example.datadelivery.BottomNavigationListener
 import com.example.datadelivery.Data_G
 import com.example.datadelivery.Model.Data
 import com.example.datadelivery.NotificationViewModel
 import com.example.datadelivery.NotificationViewModelFactory
 import com.example.datadelivery.ViewModel.SharedChartsViewModel
+import com.example.datadelivery.ViewModel.SharedUserViewModel
 import com.example.datadelivery.databinding.FragmentStatisticsBinding
 
 class Statistics : Fragment() {
-
+    private var bottomNavigationListener: BottomNavigationListener? = null
     private var _binding: FragmentStatisticsBinding? = null
     private val binding get() = _binding!!
     private lateinit var notificationViewModel: NotificationViewModel
     val sharedChartsViewModel : SharedChartsViewModel by activityViewModels()
+    val sharedUserViewModel : SharedUserViewModel by activityViewModels ()
 
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is BottomNavigationListener) {
+            bottomNavigationListener = context
+        }
+    }
+    override fun onDetach() {
+        super.onDetach()
+        bottomNavigationListener = null
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val factory = NotificationViewModelFactory(DateDeliveryRepository())
@@ -42,7 +57,10 @@ class Statistics : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        if(sharedUserViewModel.loggedIn== 0)
+        {
+            hideBottomNavigation()
+        }
         notificationViewModel.getGrades()
         notificationViewModel.gradeList.observe(viewLifecycleOwner)
         {
@@ -52,9 +70,9 @@ class Statistics : Fragment() {
             }
             if (currentGradeList != null) {
                 Log.i("xxx-grades",currentGradeList.size.toString())
-                binding.avg.text=calculateGradeAverage(currentGradeList).toString()
+                binding.avg.text=String.format("%.2f", calculateGradeAverage(currentGradeList))
                 binding.median.text = calculateMedianGrade(currentGradeList).toString()
-                binding.passRate.text = calculatePassingRate(currentGradeList).toString()+"%"
+                binding.passRate.text = String.format("%.2f", calculatePassingRate(currentGradeList))+"%"
             }
             else {
                 binding.avg.text = ""
@@ -178,6 +196,9 @@ class Statistics : Fragment() {
             (courseLevelSum.toDouble() / count.toDouble())
         else
             0.0
+    }
+    private fun hideBottomNavigation() {
+        bottomNavigationListener?.hideBottomNavigation()
     }
 
 }

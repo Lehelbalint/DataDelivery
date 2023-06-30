@@ -22,4 +22,10 @@
         android:icon="@drawable/stat"
         tools:layout="@layout/fragment_filter"
         android:title="Statistics" />
+
+    <item
+        android:id="@+id/Logout"
+        android:title = "Logout"
+        android:icon="@drawable/logout"
+            />
 </menu>
