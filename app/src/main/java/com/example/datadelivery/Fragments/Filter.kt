@@ -1,18 +1,19 @@
 package com.example.datadelivery.Fragments
 
+import android.R
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.datadelivery.API.DateDeliveryRepository
 import com.example.datadelivery.BottomNavigationListener
-import com.example.datadelivery.R
+
 import com.example.datadelivery.ViewModel.FilterViewModel
 import com.example.datadelivery.ViewModel.FilterViewModelFactory
 import com.example.datadelivery.ViewModel.SharedChartsViewModel
@@ -64,7 +65,6 @@ class Filter : Fragment() {
 
         val yearOptions = listOf("All","2021", "2022", "2023")
         val gradeTypeOptions = listOf("All","Final", "Partial")
-
         val yearAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, yearOptions)
         yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerYear.adapter = yearAdapter
@@ -102,7 +102,7 @@ class Filter : Fragment() {
             sharedChartsViewModel.type = binding.spinnerGradeType.selectedItem.toString()
             sharedChartsViewModel.year = binding.spinnerYear.selectedItem.toString()
 
-            findNavController().navigate(R.id.action_filter_to_statistics2)
+            findNavController().navigate(com.example.datadelivery.R.id.action_filter_to_statistics2)
 
         }
         binding.button2.setOnClickListener {
@@ -110,7 +110,7 @@ class Filter : Fragment() {
             sharedChartsViewModel.department = binding.spinnerDepartment.selectedItem.toString()
             sharedChartsViewModel.type = binding.spinnerGradeType.selectedItem.toString()
             sharedChartsViewModel.year = binding.spinnerYear.selectedItem.toString()
-            findNavController().navigate(R.id.action_filter_to_secondFilter)
+            findNavController().navigate(com.example.datadelivery.R.id.action_filter_to_secondFilter)
         }
     }
     private fun hideBottomNavigation() {

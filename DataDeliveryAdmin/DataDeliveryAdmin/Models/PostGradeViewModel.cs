@@ -10,6 +10,7 @@
         public int percantage { get; set; }
         public bool final { get; set; }
         public string date { get; set; }
+        public string note { get; set; }
         public CourseConnect course { get; set; }
         public StudentConnect student { get; set; }
         public TeacherConnect teacher { get; set; }

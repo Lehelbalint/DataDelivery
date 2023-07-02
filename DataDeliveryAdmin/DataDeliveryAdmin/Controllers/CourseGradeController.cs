@@ -173,6 +173,7 @@ namespace DataDeliveryAdmin.Controllers
                 grade = model.Grade,
                 percantage = model.Percentage,
                 date = model.Date.ToString("yyyy-MM-dd"),
+                note = model.Note,
                 course = new CourseConnect
                 {
                     connect = new List<int> { model.CourseId }
@@ -312,6 +313,7 @@ namespace DataDeliveryAdmin.Controllers
                 percantage = 100,
                 date = DateTime.Today.ToString("yyyy-MM-dd"),
                 final = true,
+                note    = model.Note,
                 course = new CourseConnect
                 {
                     connect = new List<int> { model.CourseId }

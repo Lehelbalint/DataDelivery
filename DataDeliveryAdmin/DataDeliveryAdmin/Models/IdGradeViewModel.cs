@@ -10,6 +10,8 @@
 		public int Percentage { get; set;}
 		public DateTime Date { get; set; }
 
+		public string Note { get; set; }
+
 		public List<Data_G> grades { get; set; }
 
 		public float finalGrade { get; set; }

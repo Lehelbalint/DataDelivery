@@ -3,7 +3,7 @@
 
 		public class SingleGradeViewModel
 	{
-			public DataModelS Data { get; set; }
+			public DataModelS? Data { get; set; }
 		}
 
 		public class DataModelS
@@ -23,6 +23,7 @@
 			public int Grade { get; set; }
 			public int Percantage { get; set; }
 			public bool Final { get; set; }
+			public string? Note { get; set; }
 			public DateTime CreatedAt { get; set; }
 			public DateTime UpdatedAt { get; set; }
 			public DateTime PublishedAt { get; set; }

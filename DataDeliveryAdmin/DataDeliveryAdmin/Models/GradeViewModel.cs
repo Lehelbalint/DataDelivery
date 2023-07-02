@@ -21,6 +21,8 @@
         public string UpdatedAt { get; set; }
         public string PublishedAt { get; set; }
         public string Date { get; set; }
+
+        public string Note { get; set; }   
         public Course_Grade Course { get; set; }
         public Student_G Student { get; set; }
         public Teacher_G Teacher { get; set; }
